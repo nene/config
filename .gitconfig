@@ -15,3 +15,5 @@
 	st = status
 	ci = commit
 	co = checkout
+[diff "podiff"]
+	textconv = strip-po-comments

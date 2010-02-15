@@ -1,0 +1,3 @@
+# Removes filename and line number comments from .po files
+# used by Git when diffing.
+grep -v '^#:' $1
