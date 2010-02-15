@@ -1,0 +1,8 @@
+[user]
+	name = Rene Saarsoo
+	email = nene@triin.net
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
