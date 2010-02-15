@@ -1,0 +1,26 @@
+#!/usr/bin/env perl
+
+$restore = "\033[0;37m";
+$blue = "\033[0;34m";
+$violet = "\033[0;35m";
+$green = "\033[0;32m";
+$red = "\033[0;31m";
+
+while (<>) {
+    chop;
+    
+    if ( m{^(=|\+\+\+|---)} ) {
+        print $blue;
+    }
+    elsif ( m{^@} ) {
+        print $violet;
+    }
+    elsif ( m{^\+} ) {
+	print $green; # added
+    }
+    elsif ( m{^-} ) {
+	print $red;   # deleted
+    }
+
+    print $_ . $restore . "\n";
+}
