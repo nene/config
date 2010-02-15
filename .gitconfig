@@ -1,8 +1,17 @@
-[user]
-	name = Rene Saarsoo
-	email = nene@triin.net
+[merge]
+	tool = vimdiff
 [color]
 	diff = auto
 	status = auto
 	branch = auto
 	interactive = auto
+[user]
+	name = Rene Saarsoo
+	email = nene@triin.net
+[alias]
+	df = diff
+	lg = log --ext-diff
+	sh = show --ext-diff
+	st = status
+	ci = commit
+	co = checkout
