@@ -1,0 +1,7 @@
+#! /bin/sh
+awk 'BEGIN { FS=RS }
+{ print length, $0 }' $* |
+# Sort the lines numerically
+sort +0n -1 |
+# Remove the length and the space and print each line
+sed 's/^[0-9][0-9]* //'

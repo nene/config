@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+mount /mnt/backup
+target=/mnt/backup/$(date +%FT%H-%M)-backup
+echo Doing backup at $target
+
+mkdir $target
+backup_list="$(ls /home/nene) $(echo .ssh .opera .emacs .emacs.d .bashrc .bash_history .bash_profile)"
+
+for file in $backup_list; do
+    if [ -d /home/nene/$file ]; then
+        echo tar -czvf $target/$file.tar.gz /home/nene/$file
+        tar -czvf $target/$file.tar.gz /home/nene/$file
+    else
+        echo cp /home/nene/$file $target/$file
+        cp /home/nene/$file $target/$file
+    fi
+done
+

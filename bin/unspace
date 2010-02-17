@@ -1,0 +1,9 @@
+#!/bin/bash
+for filename in *\ *;
+do
+    new_filename=`echo $filename | tr ' ' '_'`
+    echo "$filename => $new_filename"
+    mv "$filename" $new_filename
+done
+
+

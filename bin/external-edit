@@ -1,0 +1,182 @@
+#!/bin/sh
+##################################################
+#
+# external-edit: launches an external editor from within an X11 Application.
+#
+# Author: Ben Collerson { benc [at] bur [dot] st }
+# Copyright: 2004 Ben Collerson
+# Lastchange: 2004 Oct 24
+# Some fixes by Shreevatsa R on 2006-12-28, and exhaustive testing.
+# License: GPL version 2.0 or later (http://www.gnu.org/copyleft/gpl.html)
+#
+# Install:
+# =======
+# NOTE: These installation instructions are targeted towards a Debian
+# system (such as Ubuntu). To install on a non-Debian system you will
+# need to reinterpret these instructions.
+#
+# First you will need to install the required packages. So do the
+# following as root:
+#
+#   apt-get install xbase-clients xautomation wmctrl xsel
+#
+# wmctrl is a "command line tool to interact with an EWMH/NetWM
+# compatible X Window Manager". This means that this tip will not work
+# if you are using a particularly old window manager, however most of
+# the main WMs are okay -- including the default Gnome and KDE Window
+# Managers. More info is available at the wmctrl link
+# http://sweb.cz/tripie/utils/wmctrl/
+#
+# Put this script somewhere handy like ~/bin/external-edit and do
+# chmod +x ~/bin/external-edit
+#
+# Usage:
+# =====
+# Using your favourite keygrabber/window manager bind a key
+# combination (eg: Ctrl-Alt-V) to a command like one of the following:
+#
+#   external-edit /usr/bin/gvim -f
+#   external-edit /usr/bin/emacs
+#   external-edit /usr/bin/emacsclient -a emacs
+#
+# for my fluxbox/bbkeys configuration I have the following in my .bbkeysrc:
+#
+#   KeyToGrab(V), WithModifier(Mod1+Control), WithAction(ExecCommand), DoThis(/home/ben/bin/external-edit gvim -f)
+#
+# Note than the editor you specify must not fork (gvim -f). When
+# executed the editor must allow the script to wait until the editor
+# has finished executing.
+#
+# This script has been tested on both KDE and GNOME, from all of
+# Firefox, Konqueror, Opera, launching all of Emacs[client], Gvim -f,
+# Gedit and Kate. This does not mean that it will only work for these;
+# it only means that if it works for these thirty-odd test cases, it
+# is very likely that you will be able to get it to work as well.
+# Note that although the focus here was on browsers (expecting
+# TEXTAREA forms to be where an external editor would be most needed),
+# you can also use this script to do crazy things like invoking vim to
+# edit the contents of an Emacs buffer, and so on. (Extend The xte_
+# functions appropriately.) --S
+
+# editor plus arguments (except filename) passed on command line
+editor=$*
+
+# this gets the window id of the window with focus
+winid=`xdpyinfo | sed -ne 's/^focus:.*\(0x[^,]\+\).*/\1/p'`
+
+# For some reason (perhaps because I am using KeyTouch to launch this
+# script from a keystroke), the winid got above is consistently wrong
+# for GTK apps (like Firefox, Gaim, Xchat, ...), irrespective of
+# whether I'm using GNOME or KDE. In these cases, it appears that a
+# new window is created, with an id one more than the id of the actual
+# window (don't know if this can be relied upon), and with width=1,
+# height=1, and no name. For all other apps (KDE apps, Opera, etc...),
+# it works fine. Hence the fix here. Maybe the original thing works
+# for you, in which case the code below will never be executed. --S
+
+if xwininfo -id $winid | grep "(has no name)"
+then
+  winid=`printf "0x%x\n" $(( $winid - 1 ))` #Decrement by one.
+fi
+
+# and this gets window title
+wintitle=`xwininfo -id $winid | sed -ne 's/xwininfo: .*"\([^"]\+\)"/\1/p'`
+
+# This script works by actually simulating the keystrokes that
+# programs use for Select-All, Copy, and Paste. Different programs use
+# different ones; so we use $wintitle to decide what to do. The common
+# browsers (Firefox, Mozilla, Konqueror, Opera) seem to only differ in
+# what they use for Select-All; so the rest of the functions are
+# constant functions here. Write your own functions below if the ones
+# here don't apply to your programs. Also, maybe it's better to use
+# xprop and the WM_CLASS information instead of wintitle? --S
+
+xte_selectall()
+{
+  case $wintitle in
+    *irefox* | *ozilla* )
+      xte <<EOF
+sleep 1
+keydown Alt_L
+key a
+keyup Alt_L
+EOF
+      ;;
+    *)
+      xte <<EOF
+sleep 1
+keydown Control_L
+key a
+keyup Control_L
+EOF
+      ;;
+esac
+}
+
+xte_copy()
+{
+  xte <<EOF
+keydown Control_L
+key c
+keyup Control_L
+sleep 1
+EOF
+}
+
+xte_home()
+{
+  xte <<EOF
+keydown Control_L
+key Home
+keyup Control_L
+EOF
+}
+
+xte_paste()
+{
+  xte <<EOF
+keydown Control_L
+key v
+keyup Control_L
+sleep 1
+EOF
+}
+
+mytemp=`mktemp`
+
+# copy text using application keyboard short-cuts
+xte_selectall
+xte_copy
+xte_home
+
+xsel -b -o > $mytemp
+# xclip could also be used eg:
+# xclip -selection clipboard -o > $mytemp
+
+# invoke the editor, wait for it to finish
+$editor $mytemp
+
+# applications should be using the clipboard to paste!
+xsel -b -i < $mytemp
+
+# some applications have incorrect behaviour and use the primary
+# selection to paste
+xsel -p -i < $mytemp
+
+# activates the original window
+wmctrl -ia $winid
+
+# paste text using application keyboard short-cuts
+xte_selectall
+xte_paste
+xte_home
+
+# cleanup temporary file
+rm $mytemp
+
+# (Emacs) Local Variables:
+# (Emacs) sh-basic-offset : 2
+# (Emacs) End:
+
+# vim:ft=sh:sw=2
+

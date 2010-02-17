@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+
+$text = $ARGV[0];
+
+$start = $ARGV[1];
+$finish = $ARGV[2];
+
+$text =~ /[^#](#+)[^#]/;
+
+$maxlen = length($1);
+
+for ($i=$start; $i<=$finish; $i++)
+{
+    $_ = $text;
+    $zerofill="";
+    $len = length($i);
+    for($j=$len;$j<$maxlen;$j++)
+    {
+        $zerofill="$zerofill"."0";
+    }
+    s/([^#])(#+)([^#]|$)/\1$zerofill$i\3/;
+    
+    print "$_\n";
+}
