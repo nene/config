@@ -4,11 +4,16 @@
 *.doc
 *.pdf
 
-# Inside .xemacs ignore:
+# Inside .xmonad ignore:
 .xmonad/xmonad-x86_64-linux
 .xmonad/xmonad.errors
 .xmonad/xmonad.hi
 .xmonad/xmonad.o
+
+# Inside .emacs.d ignore:
+.emacs.d/*.elc
+.emacs.d/auto-save-list
+.emacs.d/local-settings.el
 
 .AbiSuite
 .PlaneShift/

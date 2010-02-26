@@ -1,0 +1,12 @@
+;; Machine specific settings
+
+;; Twitter user/pass
+(setq my-twitter-username "")
+(setq my-twitter-password "")
+
+;; position and resize the window... I mean... the frame
+(add-to-list 'default-frame-alist '(left . 0))
+(add-to-list 'default-frame-alist '(top . 0))
+(add-to-list 'default-frame-alist '(height . 64))
+(add-to-list 'default-frame-alist '(width . 176))
+
