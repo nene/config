@@ -14,6 +14,7 @@
 .emacs.d/*.elc
 .emacs.d/auto-save-list
 .emacs.d/local-settings.el
+.emacs.d/anything-c-adaptive-history
 
 .AbiSuite
 .PlaneShift/
