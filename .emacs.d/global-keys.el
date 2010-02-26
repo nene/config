@@ -103,8 +103,3 @@ When no region active, applies command to whole buffer."
 (global-set-key (kbd "C-u") 'upcase-region)
 (global-set-key (kbd "C-l") 'downcase-region)
 
-
-;; Bind WinKey+Arrow to moving inside splitted Emacs frame between windows
-(require 'windmove)
-(windmove-default-keybindings 'super)
-
