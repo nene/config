@@ -10,6 +10,8 @@
 
 ;; Load settings local to this machine (window size, passwords, ...)
 (load "local-settings")
+(require 'maxframe)
+(add-hook 'window-setup-hook 'maximize-frame t)
 
 ;; turn off fancy toolbar
 (tool-bar-mode 0)
