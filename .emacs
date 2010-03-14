@@ -26,9 +26,6 @@
   uniquify-buffer-name-style 'post-forward
   uniquify-separator ":")
 
-;; Maintain current screen position when scrolling using Page-Up/Page-Down.
-(setq scroll-preserve-screen-position 1)
-
 ;; Make Emacs UTF-8 compatible for both display and editing:
 (prefer-coding-system 'utf-8-unix)
 (setq locale-coding-system 'utf-8)
