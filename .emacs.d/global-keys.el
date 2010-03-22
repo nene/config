@@ -18,6 +18,22 @@
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 
 
+;; C-x C-' to reload all open files
+(defun revert-all-buffers ()
+  "Refreshes all open buffers from their respective files"
+  (interactive)
+  (let* ((list (buffer-list))
+         (buffer (car list)))
+    (while buffer
+      (when (buffer-file-name buffer)
+        (progn
+          (set-buffer buffer)
+          (revert-buffer t t t)))
+      (setq list (cdr list))
+      (setq buffer (car list))))
+  (message "Refreshing open files"))
+
+(global-set-key (kbd "C-x *") 'revert-all-buffers)
 
 ;;
 ;; Switching between buffers skipping *system-buffers*
