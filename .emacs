@@ -10,6 +10,8 @@
 
 ;; Load settings local to this machine (window size, passwords, ...)
 (load "local-settings")
+(require 'maxframe)
+(add-hook 'window-setup-hook 'maximize-frame t)
 
 ;; turn off fancy toolbar
 (tool-bar-mode 0)
@@ -23,9 +25,6 @@
 (setq
   uniquify-buffer-name-style 'post-forward
   uniquify-separator ":")
-
-;; Maintain current screen position when scrolling using Page-Up/Page-Down.
-(setq scroll-preserve-screen-position 1)
 
 ;; Make Emacs UTF-8 compatible for both display and editing:
 (prefer-coding-system 'utf-8-unix)
@@ -96,7 +95,7 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#ffffff" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
+ '(default ((t (:inherit nil :stipple nil :background "#ffffff" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 90 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
  '(font-lock-comment-face ((((class color) (min-colors 88) (background light)) (:foreground "#888"))))
  '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
  '(font-lock-string-face ((((class color) (min-colors 88) (background light)) (:foreground "FireBrick")))))
