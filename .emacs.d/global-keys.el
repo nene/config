@@ -119,3 +119,33 @@ When no region active, applies command to whole buffer."
 (global-set-key (kbd "C-u") 'upcase-region)
 (global-set-key (kbd "C-l") 'downcase-region)
 
+
+(defun forward-camelcase-word ()
+  "Moves forward by one word inside CamelCasedWord."
+  (interactive)
+  (goto-char (min
+              (save-excursion (forward-word) (point))
+              (save-excursion (forward-camelcase-word-dumb) (point)))))
+
+(defun backward-camelcase-word ()
+  "Moves backward by one word inside CamelCasedWord."
+  (interactive)
+  (goto-char (max
+              (save-excursion (backward-word) (point))
+              (save-excursion (backward-camelcase-word-dumb) (point)))))
+
+(defun forward-camelcase-word-dumb ()
+  (setq case-fold-search nil)
+  (forward-char 1)
+  (re-search-forward "[A-Z]" nil t)
+  (forward-char -1)
+  (setq case-fold-search t))
+  
+(defun backward-camelcase-word-dumb ()
+  (setq case-fold-search nil)
+  (forward-char -1)
+  (re-search-backward "[A-Z]" nil t)
+  (setq case-fold-search t))
+  
+(global-set-key (kbd "s-<right>") 'forward-camelcase-word)
+(global-set-key (kbd "s-<left>") 'backward-camelcase-word)
