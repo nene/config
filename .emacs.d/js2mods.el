@@ -22,12 +22,18 @@
               (js2mods-line-is-unindent-line))
          (indent-line-to (js2mods-previous-line-indent)))
         
+        ((js2mods-previous-line-is-doc-comment-start)
+         (indent-line-to (+ (js2mods-previous-line-indent) 1)))
+
+        ((js2mods-previous-line-is-doc-comment-end)
+         (indent-line-to (- (js2mods-previous-line-indent) 1)))
+        
         ((js2mods-previous-line-is-indent-line)
          (indent-line-to (+ (js2mods-previous-line-indent) 2)))
         
         ((js2mods-line-is-unindent-line)
          (indent-line-to (- (js2mods-previous-line-indent) 2)))
-        
+
         (t
          (indent-line-to (js2mods-previous-line-indent))))
   t)
@@ -36,19 +42,16 @@
   "Returns indentation of previous line"
   (save-excursion
     (forward-line -1)
-    ;; When looking at doc-comment end return nr of spaces - 1
-    ;; Otherwise just return number of spaces
-    (if (looking-at "^\\( *\\)\\*/$")
-        (- (length (match-string 1)) 1)
-      (progn
-        (looking-at "^\\( *\\)")
-        (length (match-string 1))))))
+    (beginning-of-line)
+    (looking-at "^\\( *\\)")
+    (length (match-string 1))))
 
 (defun js2mods-previous-line-is-indent-line ()
   "Determines if previous line ends with (, {, ["
   (if (> (line-number-at-pos) 1)
       (save-excursion
         (forward-line -1)
+        (beginning-of-line)
         (looking-at "^.*[[({] *$"))
     nil))
 
@@ -58,15 +61,31 @@
     (beginning-of-line)
     (looking-at "^[ ]*\\(}\\|)\\|]\\)")))
 
-(add-hook 'js2-indent-hook 'js2mods-indent)
+(defun js2mods-previous-line-is-doc-comment-start ()
+  "Determines if previous line is /**"
+  (if (> (line-number-at-pos) 1)
+      (save-excursion
+        (forward-line -1)
+        (beginning-of-line)
+        (looking-at "^ */\\*\\* *$"))
+    nil))
 
-(defun js2mods-indent-line-or-region (&optional start end)
-  (interactive
-   (progn
-	 (if mark-active (list (region-beginning) (region-end)) nil)))
-  (if start
-      (js2mods-indent-region start end)
-    (indent-according-to-mode)))
+(defun js2mods-previous-line-is-doc-comment-end ()
+  "Determines if previous line is */"
+  (if (> (line-number-at-pos) 1)
+      (save-excursion
+        (forward-line -1)
+        (beginning-of-line)
+        (looking-at "^ *\\*/ *$"))
+    nil))
+
+(defun js2mods-line-is-oneline-comment ()
+  "Determines if current line begins with //"
+  (save-excursion
+    (beginning-of-line)
+    (looking-at "^ *//")))
+
+(add-hook 'js2-indent-hook 'js2mods-indent)
 
 (defun js2mods-insert-line-and-indent ()
   (interactive)
@@ -83,6 +102,7 @@
      (t
       (insert "\n")
       (js2mods-indent)))))
+
 
 (add-hook 'js2-mode-hook
   (lambda ()
