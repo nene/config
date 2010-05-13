@@ -87,6 +87,14 @@
 
 (add-hook 'js2-indent-hook 'js2mods-indent)
 
+(defun js2mods-indent-line-or-region (&optional start end)
+  (interactive
+   (progn
+	 (if mark-active (list (region-beginning) (region-end)) nil)))
+  (if start
+      (js2mods-indent-region start end)
+    (indent-according-to-mode)))
+
 (defun js2mods-insert-line-and-indent ()
   (interactive)
   ;; modified version of js2-enter-key function
@@ -97,7 +105,7 @@
      ((nth 3 parse-status)
       (js2-mode-split-string parse-status))
      ;; check if inside a block comment
-     ((nth 4 parse-status)
+     ((and (nth 4 parse-status) (not (js2mods-line-is-oneline-comment)))
       (js2-mode-extend-comment))
      (t
       (insert "\n")
