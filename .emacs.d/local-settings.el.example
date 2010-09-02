@@ -1,9 +1,0 @@
-;; Machine specific settings
-
-;; Twitter user/pass
-(setq my-twitter-username "")
-(setq my-twitter-password "")
-
-;; Maximum window width when auto-fullscreening
-(setq mf-max-width 1024)
-

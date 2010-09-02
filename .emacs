@@ -8,8 +8,7 @@
 ;; Add my emacs extras dir to load path
 (add-to-list 'load-path "~/.emacs.d")
 
-;; Load settings local to this machine (window size, passwords, ...)
-(load "local-settings")
+;; Automagically maximize frame
 (require 'maxframe)
 (add-hook 'window-setup-hook 'maximize-frame t)
 
@@ -87,8 +86,6 @@
  '(mouse-wheel-scroll-amount (quote (3 ((shift) . 1) ((control)))))
  '(save-abbrevs (quote silently))
  '(transient-mark-mode t)
- '(twitter-password my-twitter-password)
- '(twitter-username my-twitter-username)
  '(vc-svn-global-switches nil))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
@@ -120,6 +117,7 @@
 ;; JavaScript mode from Steve Yegge
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
 ;; My JS2 mode customizations
 (load "js2mods")
 
@@ -134,8 +132,11 @@
 (add-hook 'c-mode-hook
   '(lambda ()
      (define-key c-mode-map (kbd "M-a") 'anything)))
-   
-(autoload 'twitter-get-friends-timeline "twitter" nil t)
-(autoload 'twitter-status-edit "twitter" nil t)
-(global-set-key "\C-xt" 'twitter-get-friends-timeline)
-(add-hook 'twitter-status-edit-mode-hook 'longlines-mode)
+
+;; Twittering Mode
+(add-to-list 'load-path "~/.emacs.d/twittering-mode")
+(require 'twittering-mode)
+(setq twittering-icon-mode t)
+(setq twittering-use-master-password t)
+
+(global-set-key "\C-xt" 'twit)
