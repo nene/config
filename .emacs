@@ -121,6 +121,11 @@
 ;; My JS2 mode customizations
 (load "js2mods")
 
+
+;; Always remove trailing whitespace
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+
 (require 'anything-config)
 (setq anything-sources
       '(anything-c-source-buffers

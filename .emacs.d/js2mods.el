@@ -164,10 +164,6 @@ when that line is empty, looks at the line before it etc."
 	  (when (y-or-n-p (concat "file " filename " not found. Create it? "))
 		(js2mods-create-new-test-file filename (js2mods-buffer-classname))))))
 
-(add-hook 'js2-mode-hook
-  (lambda ()
-	(define-key js2-mode-map (kbd "C-c t") 'js2mods-find-test-file)))
-
 
 (define-skeleton js2mods-file-skeleton
   "Inserts JavaScript file template"
@@ -192,8 +188,4 @@ when that line is empty, looks at the line before it etc."
   (grep-find (concat "find . -type f -iname '*.js' -print0 | xargs -0 -e grep -nH -e '" needle "'")))
 
 
-(add-hook 'js2-mode-hook
-          (lambda()
-            (add-hook 'before-save-hook
-                      'delete-trailing-whitespace nil t)))
 
