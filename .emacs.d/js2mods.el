@@ -39,12 +39,15 @@
   t)
 
 (defun js2mods-previous-line-indent ()
-  "Returns indentation of previous line"
+  "Returns indentation of previous line,
+when that line is empty, looks at the line before it etc."
   (save-excursion
     (forward-line -1)
     (beginning-of-line)
-    (looking-at "^\\( *\\)")
-    (length (match-string 1))))
+    (if (and (looking-at "^$") (> (point) 1))
+        (js2mods-previous-line-indent)
+      (looking-at "^\\( *\\)")
+      (length (match-string 1)))))
 
 (defun js2mods-previous-line-is-indent-line ()
   "Determines if previous line ends with (, {, ["
@@ -174,7 +177,7 @@
   "/**\n"
   " * @class " class "\n"
   " * @extends " (setq extends (skeleton-read "Extends: ")) "\n"
-  " * \n"
+  " *\n"
   " */\n"
   class " = Ext.extend(" extends ", {\n"
   "  initComponent: function() {\n"
@@ -187,3 +190,10 @@
 (defun jsgrep (needle)
   (interactive "sFind JS: ")
   (grep-find (concat "find . -type f -iname '*.js' -print0 | xargs -0 -e grep -nH -e '" needle "'")))
+
+
+(add-hook 'js2-mode-hook
+          (lambda()
+            (add-hook 'before-save-hook
+                      'delete-trailing-whitespace nil t)))
+
