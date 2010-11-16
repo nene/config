@@ -25,6 +25,10 @@
   uniquify-buffer-name-style 'post-forward
   uniquify-separator ":")
 
+;; Use fabulous undo-system
+(require 'undo-tree)
+(global-undo-tree-mode)
+
 ;; Make Emacs UTF-8 compatible for both display and editing:
 (prefer-coding-system 'utf-8-unix)
 (setq locale-coding-system 'utf-8)
