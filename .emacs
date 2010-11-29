@@ -88,6 +88,7 @@
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (3 ((shift) . 1) ((control)))))
+ '(ruby-deep-indent-paren (quote (t)))
  '(save-abbrevs (quote silently))
  '(transient-mark-mode t)
  '(vc-svn-global-switches nil))
