@@ -125,6 +125,8 @@
 ;; My JS2 mode customizations
 (load "js2mods")
 
+(add-to-list 'auto-mode-alist '("[Rr]akefile$" . ruby-mode))
+
 
 ;; Always remove trailing whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
