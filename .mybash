@@ -46,11 +46,11 @@ shopt -s histappend
 alias vi=vim
 
 # colors for ls, etc.
-if [[ uname == 'FreeBSD' ]]; then
+if [[ `uname` == 'FreeBSD' ]]; then
     alias ls="ls -G"
     alias la="ls -a"
     alias ll="ls -lh"
-elif [[ uname == 'Linux' ]]; then
+elif [[ `uname` == 'Linux' ]]; then
     eval `dircolors -b /etc/DIR_COLORS`
     alias ls="ls --color=auto"
     alias ll="ls --color -lh"
