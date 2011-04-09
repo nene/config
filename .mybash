@@ -1,0 +1,86 @@
+# Source this file from .bashrc
+
+# The modification of shell prompt
+
+# \a	this option will make the computer "Beep"
+# \d	Displays the date in "Weekday Month Date"
+# \h	Displays the hostname
+# \H	It's just like \h but shows the complete hostname including the domain.
+# \n	This will make the prompt move to the next line.
+# \s	Displays the name of shell you are using.
+# \t	Displays current time in 24-hour HH:MM:SS format
+# \T	Displays current time in 12-hour HH:MM:SS format
+# \@	Displays current time in 12-hour am/pm format
+# \u	Displays the name of your user.
+# \W	Displays the name of the current directory
+# \w	Same as \W but it will also show you the complete directory.
+# \!	Displays the number of the command in the history file
+# \#	Displays the number of commands you have executed in the current shell.
+# \$	This will display the character # if you have uid 0 (root) or else it will display an $
+# \nnn	Displays the corresponding octal character nnn
+# \j	Displays how many jobs the users currently has.
+
+function parse_git_branch {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo "("${ref#refs/heads/}") "
+}
+
+PS1="\[\033[31m\]\u@\h\[\033[0m\] \[\033[32m\]\W \[\033[0;33m\]\$(parse_git_branch)\[\033[32m\]\$ \[\033[0m\]"
+
+
+# Exports
+export LANG="et_EE.UTF-8"
+export LC_CTYPE="et_EE.UTF-8"
+export EDITOR=vim
+export PAGER=less
+
+
+# History settings
+export HISTFILESIZE=20000
+export HISTSIZE=1000
+HISTCONTROL=ignoredups
+shopt -s histappend
+
+
+# In case it's not already so
+alias vi=vim
+
+# colors for ls, etc.
+if [[ uname == 'FreeBSD' ]]; then
+    alias ls="ls -G"
+    alias la="ls -a"
+    alias ll="ls -lh"
+elif [[ uname == 'Linux' ]]; then
+    eval `dircolors -b /etc/DIR_COLORS`
+    alias ls="ls --color=auto"
+    alias ll="ls --color -lh"
+    alias la="ls --color -a"
+fi
+
+# Grepping
+alias grep="grep --color"
+alias egrep="egrep --color"
+alias jsgrep="find . -iname '*.js' | xargs egrep --color"
+alias rbgrep="find . -iname '*.rb' | xargs egrep --color"
+alias xmlgrep="find . -iname '*.xml' | xargs egrep --color"
+alias phpgrep="find . -iname '*.php' -or -iname '*.inc' | xargs egrep --color"
+
+# make MPlayeri really quiet
+alias mplayer="mplayer -really-quiet"
+
+# telnet/ssh aliases
+alias lin2="ssh nene@lin2.tlu.ee"
+alias sshmedian="ssh rene@mail.tarkvarastuudio.ee"
+
+alias mountmedian="sshfs -o workaround=rename rene@mail.tarkvarastuudio.ee:/storage/www/dev/rene /home/nene/median/"
+alias mountall="mount /mnt/data; mount /mnt/backup"
+
+alias ip="cat /var/lib/dhcpc/dhcpcd-eth0.info | head -n 7"
+alias usb="sudo mount /dev/sda1 /mnt/usb/"
+
+# SeeMe development
+alias fix-js-file-endings='for file in $(find . -iname "*.js"); do dos2unix $file; done'
+alias psql-seeme="psql --host=192.168.0.1 --port=5432 seeme2 local"
+alias problem-files="find . | egrep '\.(php|inc|sql|js|css|rb|sh)$' | xargs wc -l | sort -g"
+
+
