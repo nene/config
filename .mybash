@@ -21,8 +21,11 @@
 # \j	Displays how many jobs the users currently has.
 
 function parse_git_branch {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo "("${ref#refs/heads/}") "
+  top=$(git rev-parse --show-toplevel 2> /dev/null)
+  if [ "$top" != "/home/nene" ]; then
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+    echo "("${ref#refs/heads/}") "
+  fi
 }
 
 PS1="\[\033[31m\]\u@\h\[\033[0m\] \[\033[32m\]\W \[\033[0;33m\]\$(parse_git_branch)\[\033[32m\]\$ \[\033[0m\]"
