@@ -15,6 +15,6 @@
 	st = status
 	ci = commit
 	co = checkout
-	slog = log --format=format:'%C(yellow)%h %Cgreen%an%x09 %Creset%s %Cblue(%cr)%Creset'
+	slog = log --format=format:'%C(yellow)%h %Cgreen%an%x09 %Creset%s %Cblue(%ar)%Creset%d'
 [diff "podiff"]
 	textconv = strip-po-comments
