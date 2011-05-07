@@ -1,6 +1,8 @@
-;; 
+;;
 ;; My js2-mode modifications
 ;;
+
+(defvar js2mods-indent-tab-width 2)
 
 (defun js2mods-indent-region (start end)
   "Indents a region in my way line-by-line."
@@ -14,25 +16,25 @@
       (while (neq (line-number-at-pos) last-line-in-region)
         (js2mods-indent)
         (forward-line)))))
-    
+
 
 (defun js2mods-indent (&optional list index)
   "My indentation, that never indents more than two spaces."
   (cond ((and (js2mods-previous-line-is-indent-line)
               (js2mods-line-is-unindent-line))
          (indent-line-to (js2mods-previous-line-indent)))
-        
+
         ((js2mods-previous-line-is-doc-comment-start)
          (indent-line-to (+ (js2mods-previous-line-indent) 1)))
 
         ((js2mods-previous-line-is-doc-comment-end)
          (indent-line-to (- (js2mods-previous-line-indent) 1)))
-        
+
         ((js2mods-previous-line-is-indent-line)
-         (indent-line-to (+ (js2mods-previous-line-indent) 2)))
-        
+         (indent-line-to (+ (js2mods-previous-line-indent) js2mods-indent-tab-width)))
+
         ((js2mods-line-is-unindent-line)
-         (indent-line-to (- (js2mods-previous-line-indent) 2)))
+         (indent-line-to (- (js2mods-previous-line-indent) js2mods-indent-tab-width)))
 
         (t
          (indent-line-to (js2mods-previous-line-indent))))
