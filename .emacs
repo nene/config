@@ -130,9 +130,17 @@
 (add-to-list 'auto-mode-alist '("[Rr]akefile$" . ruby-mode))
 
 
-;; Always remove trailing whitespace
+;; Remove trailing whitespace when saving file in most modes
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-
+;; In js2-mode allow an option to turn it off and on
+(defvar js2mods-delete-trailing-whitespace-var t)
+(defun js2mods-delete-trailing-whitespace ()
+  (interactive)
+  (setq js2mods-delete-trailing-whitespace-var (not js2mods-delete-trailing-whitespace-var))
+  (message (concat "delete-trailing-whitespace is " (if js2mods-delete-trailing-whitespace-var "on" "off"))))
+(defun js2mods-maybe-delete-trailing-whitespace ()
+  (when js2mods-delete-trailing-whitespace-var (delete-trailing-whitespace)))
+(add-hook 'js2-mode-hook '(lambda () (add-hook 'before-save-hook 'js2mods-maybe-delete-trailing-whitespace)))
 
 (require 'anything-config)
 (setq anything-sources
