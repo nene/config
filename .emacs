@@ -128,6 +128,7 @@
 (load "js2mods")
 
 (add-to-list 'auto-mode-alist '("[Rr]akefile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\.gemspec$" . ruby-mode))
 
 
 ;; Remove trailing whitespace when saving file in most modes
