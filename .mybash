@@ -63,10 +63,11 @@ fi
 # Grepping
 alias grep="grep --color"
 alias egrep="egrep --color"
-alias jsgrep="find . -iname '*.js' | xargs egrep --color"
-alias rbgrep="find . -iname '*.rb' | xargs egrep --color"
-alias xmlgrep="find . -iname '*.xml' | xargs egrep --color"
-alias phpgrep="find . -iname '*.php' -or -iname '*.inc' | xargs egrep --color"
+# Note the use of sed for quoting all filenames - otherwise we can't handle paths with spaces in them
+alias jsgrep="find . -iname '*.js' | sed \"s/$/'/; s/^/'/;\" | xargs egrep --color"
+alias rbgrep="find . -iname '*.rb' | sed \"s/$/'/; s/^/'/;\" | xargs egrep --color"
+alias xmlgrep="find . -iname '*.xml' | sed \"s/$/'/; s/^/'/;\" | xargs egrep --color"
+alias phpgrep="find . -iname '*.php' -or -iname '*.inc' | sed \"s/$/'/; s/^/'/;\" | xargs egrep --color"
 
 # make MPlayeri really quiet
 alias mplayer="mplayer -really-quiet"
