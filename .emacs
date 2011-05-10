@@ -130,6 +130,8 @@
 (add-to-list 'auto-mode-alist '("[Rr]akefile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\.gemspec$" . ruby-mode))
 
+(load "scss-mode")
+
 
 ;; Remove trailing whitespace when saving file in most modes
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
