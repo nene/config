@@ -2,7 +2,8 @@
 ;; My js2-mode modifications
 ;;
 
-(defvar js2mods-indent-tab-width 2)
+(defvar js2mods-indent-tab-width 4)
+(setq js2mods-indent-tab-width 4)
 
 (defun js2mods-indent-region (start end)
   "Indents a region in my way line-by-line."
