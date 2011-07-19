@@ -191,4 +191,6 @@ when that line is empty, looks at the line before it etc."
   (grep-find (concat "find . -type f -iname '*.js' -print0 | xargs -0 -e grep -nH -e '" needle "'")))
 
 
-
+(defun sdk-grep (needle)
+  (interactive "sClass name: ")
+  (grep-find (concat "find ~/work/SDK/extjs/src ~/work/SDK/platform/src ~/work/SDK/platform/src -iname '*.js' -print0 | xargs -0 -e grep -nH -e '" needle "'")))
