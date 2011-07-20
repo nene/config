@@ -2,7 +2,8 @@
 ;; My js2-mode modifications
 ;;
 
-(defvar js2mods-indent-tab-width 2)
+(defvar js2mods-indent-tab-width 4)
+(setq js2mods-indent-tab-width 4)
 
 (defun js2mods-indent-region (start end)
   "Indents a region in my way line-by-line."
@@ -190,4 +191,6 @@ when that line is empty, looks at the line before it etc."
   (grep-find (concat "find . -type f -iname '*.js' -print0 | xargs -0 -e grep -nH -e '" needle "'")))
 
 
-
+(defun sdk-grep (needle)
+  (interactive "sClass name: ")
+  (grep-find (concat "find ~/work/SDK/extjs/src ~/work/SDK/platform/src ~/work/SDK/platform/src -iname '*.js' -print0 | xargs -0 -e grep -nH -e '" needle "'")))
