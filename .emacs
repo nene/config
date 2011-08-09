@@ -141,9 +141,13 @@
   (interactive)
   (setq js2mods-delete-trailing-whitespace-var (not js2mods-delete-trailing-whitespace-var))
   (message (concat "delete-trailing-whitespace is " (if js2mods-delete-trailing-whitespace-var "on" "off"))))
+;; Delete trailing whitespace if the option is set,
+;; but never when inside /work/SDK/ dir
 (defun js2mods-maybe-delete-trailing-whitespace ()
-  (when js2mods-delete-trailing-whitespace-var (delete-trailing-whitespace)))
+  (when (and (not (string-match "/work/SDK/" (buffer-file-name)))
+             js2mods-delete-trailing-whitespace-var) (delete-trailing-whitespace)))
 (add-hook 'js2-mode-hook '(lambda () (add-hook 'before-save-hook 'js2mods-maybe-delete-trailing-whitespace)))
+
 
 (require 'anything-config)
 (setq anything-sources
