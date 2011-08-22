@@ -6832,11 +6832,26 @@ of a simple name.  Called before EXPR has a parent node."
           "\\s-*\\([a-zA-Z0-9_$.]+\\|\\[.*?]\\)?")  ; Name
   "Matches jsdoc tags with optional type and optional param name.")
 
+(defconst js2-jsdoc-typed-or-arg-tag-regexp
+  (concat "^\\s-*\\*+\\s-*\\(@\\(?:"
+          (regexp-opt
+           '("class"
+             "extend"
+             "extends"
+             "mixin"
+             "mixins"
+             "alternateClassName"
+             "alternateClassNames"
+             "member"
+             "type"))
+          "\\)\\)"
+          "\\s-*\\({[^}]+}\\|[a-zA-Z0-9_$.]+\\)?")
+  "Matches jsdoc tags with optional type which can either be inside {} or not.")
+
 (defconst js2-jsdoc-typed-tag-regexp
   (concat "^\\s-*\\*+\\s-*\\(@\\(?:"
           (regexp-opt
            '("enum"
-             "extends"
              "field"
              "id"
              "implements"
@@ -6863,7 +6878,6 @@ of a simple name.  Called before EXPR has a parent node."
              "define"
              "exception"
              "function"
-             "member"
              "memberOf"
              "name"
              "namespace"
@@ -6871,7 +6885,6 @@ of a simple name.  Called before EXPR has a parent node."
              "suppress"
              "this"
              "throws"
-             "type"
              "version"))
           "\\)\\)\\s-+\\([^ \t]+\\)")
   "Matches jsdoc tags with a single argument.")
@@ -6881,7 +6894,6 @@ of a simple name.  Called before EXPR has a parent node."
           (regexp-opt
            '("addon"
              "author"
-             "class"
              "const"
              "constant"
              "constructor"
@@ -6962,6 +6974,7 @@ of a simple name.  Called before EXPR has a parent node."
           (save-restriction
             (narrow-to-region beg end)
             (dolist (re (list js2-jsdoc-param-tag-regexp
+                              js2-jsdoc-typed-or-arg-tag-regexp
                               js2-jsdoc-typed-tag-regexp
                               js2-jsdoc-arg-tag-regexp
                               js2-jsdoc-link-tag-regexp
