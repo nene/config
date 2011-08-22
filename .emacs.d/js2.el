@@ -6822,7 +6822,7 @@ of a simple name.  Called before EXPR has a parent node."
 
 (defconst js2-jsdoc-param-tag-regexp
   (concat "^\\s-*\\*+\\s-*\\(@"
-          "\\(?:param\\|argument\\)"
+          "\\(?:param\\|argument\\|cfg\\)"
           "\\)"
           "\\s-*\\({[^}]+}\\)?"         ; optional type
           "\\s-*\\([a-zA-Z0-9_$.]+\\|\\[.*?]\\)?")  ; Name
