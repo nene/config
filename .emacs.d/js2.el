@@ -6821,9 +6821,13 @@ of a simple name.  Called before EXPR has a parent node."
 ;; allows type specifications, and needs work before entering the wild.
 
 (defconst js2-jsdoc-param-tag-regexp
-  (concat "^\\s-*\\*+\\s-*\\(@"
-          "\\(?:param\\|argument\\|cfg\\)"
-          "\\)"
+  (concat "^\\s-*\\*+\\s-*\\(@\\(?:"
+          (regexp-opt
+           '("param"
+             "argument"
+             "cfg"
+             "property"))
+          "\\)\\)"
           "\\s-*\\({[^}]+}\\)?"         ; optional type
           "\\s-*\\([a-zA-Z0-9_$.]+\\|\\[.*?]\\)?")  ; Name
   "Matches jsdoc tags with optional type and optional param name.")
@@ -6863,7 +6867,6 @@ of a simple name.  Called before EXPR has a parent node."
              "memberOf"
              "name"
              "namespace"
-             "property"
              "since"
              "suppress"
              "this"
