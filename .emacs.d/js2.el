@@ -6917,7 +6917,7 @@ of a simple name.  Called before EXPR has a parent node."
   "Matches empty jsdoc tags.")
 
 (defconst js2-jsdoc-link-tag-regexp
-  "{\\(@\\(?:link\\|code\\)\\)\\s-+\\([^#}\n]+\\)\\(#.+\\)?}"
+  "{\\(@\\(?:link\\|code\\)\\)\\s-+\\([^#}\n]*\\)\\(#.+?\\)?}"
   "Matches a jsdoc link or code tag.")
 
 (defconst js2-jsdoc-see-tag-regexp
