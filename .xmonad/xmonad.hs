@@ -5,11 +5,10 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.NoBorders
 import XMonad.Config.Desktop (desktopLayoutModifiers)
 
-main = xmonad $ kdeConfig
- 
+main = xmonad $ kde4Config
  { modMask = mod4Mask -- use the Windows button as mod
- , manageHook = manageHook kdeConfig <+> myManageHook
- , layoutHook = layoutHook kdeConfig ||| noBorders Full
+ , manageHook = manageHook kde4Config <+> myManageHook
+ , layoutHook = layoutHook kde4Config ||| noBorders Full
  }
  where
    myManageHook = composeAll . concat $
@@ -19,4 +18,4 @@ main = xmonad $ kdeConfig
      ]
    myFloats      = ["MPlayer", "Gimp", "Skype", "Plasma-desktop", "VirtualBox"]
    myOtherFloats = ["alsamixer"]
-   
+
