@@ -194,3 +194,7 @@ when that line is empty, looks at the line before it etc."
 (defun sdk-grep (needle)
   (interactive "sFind SDK JS: ")
   (grep-find (concat "find ~/work/SDK/extjs/src ~/work/SDK/platform/src ~/work/SDK/platform/core/src -iname '*.js' -print0 | xargs -0 -e grep -nH -e '" needle "'")))
+
+(defun touch-grep (needle)
+  (interactive "sFind Touch JS: ")
+  (grep-find (concat "find ~/work/SDK/touch/src ~/work/SDK/platform/src ~/work/SDK/platform/core/src -iname '*.js' -print0 | xargs -0 -e grep -nH -e '" needle "'")))
