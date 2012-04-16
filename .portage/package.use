@@ -1,0 +1,47 @@
+# Not using PAM and LDAP, so skip these for sudo
+app-admin/sudo -pam -ldap
+
+# For now disable X support to reduce compile time
+app-editors/vim -X
+
+# ...Skip this for now...
+# Add SVN support to Git,
+# This in turn requires compiling SVN with -dso perl
+# dev-vcs/git subversion
+# dev-vcs/subversion -dso perl
+
+# All I need is a console browser
+www-client/links -X -jpeg -tiff
+
+# Needed by Chromium
+dev-libs/libxml2 icu
+
+# Allow digikam interact with my camera
+media-gfx/digikam gphoto2
+
+# Some Theora support
+media-video/vlc theora
+
+# KDE scrollbars for emacs
+# smooth font support
+# Enable GTK support, which is globally toggled off
+app-editors/emacs toolkit-scroll-bars xft gtk
+
+# Install GUI theme tweaks for firefox
+x11-themes/gtk-engines-qtcurve mozilla
+
+# +embedded needed by Amarok ?
+dev-db/mysql embedded
+virtual/mysql embedded
+
+# inkscape and related packages need python support in lcms
+# (a little color management system)
+media-libs/lcms python
+
+# PHP with Apache and MySQL support
+# JSON might be of use too... at least SeeMe uses it
+# GD was needed by portage, I din't really understand why it was required.
+dev-lang/php apache2 json mysql gd
+
+# Use v8 with mongo
+dev-db/mongodb v8
