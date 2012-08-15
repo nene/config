@@ -46,3 +46,12 @@ dev-lang/php apache2 json mysql gd
 # Use v8 with mongo
 dev-db/mongodb v8
 
+# Darktable requires these (additionally make use of gphoto)
+media-gfx/exiv2 xmp
+media-libs/libraw demosaic
+media-gfx/darktable gphoto2
+
+# For JRuby
+dev-util/jay java                                                                                                          
+dev-ruby/bouncy-castle-java ruby_targets_jruby                                                                           
+dev-ruby/rubygems ruby_targets_jruby                                                                                          

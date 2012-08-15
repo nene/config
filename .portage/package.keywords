@@ -21,3 +21,6 @@ net-im/skype
 
 # Try out this app launcher.
 x11-misc/launchy
+
+# Try out this photo editor/organizer
+media-gfx/darktable
