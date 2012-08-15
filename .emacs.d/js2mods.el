@@ -190,6 +190,10 @@ when that line is empty, looks at the line before it etc."
   (interactive "sFind JS: ")
   (grep-find (concat "find . -type f -iname '*.js' -print0 | xargs -0 -e grep -nH -e '" needle "'")))
 
+(defun rbgrep (needle)
+  (interactive "sFind Ruby: ")
+  (grep-find (concat "find . -type f -iname '*.rb' -print0 | xargs -0 -e grep -nH -e '" needle "'")))
+
 
 (defun sdk-grep (needle)
   (interactive "sFind SDK JS: ")
