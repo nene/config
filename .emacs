@@ -97,7 +97,7 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#ffffff" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 90 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
+ '(default ((t (:inherit nil :stipple nil :background "#ffffff" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 110 :width normal :foundry "unknown" :family "Monaco"))))
  '(font-lock-comment-face ((((class color) (min-colors 88) (background light)) (:foreground "#888"))))
  '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
  '(font-lock-string-face ((((class color) (min-colors 88) (background light)) (:foreground "FireBrick")))))
@@ -134,20 +134,10 @@
 
 
 ;; Remove trailing whitespace when saving file in most modes
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-;; In js2-mode allow an option to turn it off and on
-(defvar js2mods-delete-trailing-whitespace-var t)
-(defun js2mods-delete-trailing-whitespace ()
-  (interactive)
-  (setq js2mods-delete-trailing-whitespace-var (not js2mods-delete-trailing-whitespace-var))
-  (message (concat "delete-trailing-whitespace is " (if js2mods-delete-trailing-whitespace-var "on" "off"))))
-;; Delete trailing whitespace if the option is set,
-;; but never when inside /work/SDK/ dir
-(defun js2mods-maybe-delete-trailing-whitespace ()
-  (when (and (not (string-match "/work/SDK/" (buffer-file-name)))
-             js2mods-delete-trailing-whitespace-var) (delete-trailing-whitespace)))
-(add-hook 'js2-mode-hook '(lambda () (add-hook 'before-save-hook 'js2mods-maybe-delete-trailing-whitespace)))
-
+(load "ws-trim")
+(global-ws-trim-mode t)
+;; don't do anything with leading whitespace.
+(remove-hook 'ws-trim-method-hook 'ws-trim-leading)
 
 (require 'anything-config)
 (setq anything-sources
@@ -162,9 +152,9 @@
      (define-key c-mode-map (kbd "M-a") 'anything)))
 
 ;; Twittering Mode
-(add-to-list 'load-path "~/.emacs.d/twittering-mode")
-(require 'twittering-mode)
-(setq twittering-icon-mode t)
-(setq twittering-use-master-password t)
+;; (add-to-list 'load-path "~/.emacs.d/twittering-mode")
+;; (require 'twittering-mode)
+;; (setq twittering-icon-mode t)
+;; (setq twittering-use-master-password t)
 
-(global-set-key "\C-xt" 'twit)
+;; (global-set-key "\C-xt" 'twit)
