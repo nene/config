@@ -41,6 +41,16 @@
          (indent-line-to (js2mods-previous-line-indent))))
   t)
 
+(defun js2mods-string-repeat (str n)
+  (let ((retval ""))
+    (dotimes (i n)
+      (setq retval (concat retval str)))
+    retval))
+
+(defun js2mods-untabify (str)
+  "Replaces tabs with spaces according to current tab width"
+  (replace-regexp-in-string "\\t" (js2mods-string-repeat " " js2mods-indent-tab-width) str))
+
 (defun js2mods-previous-line-indent ()
   "Returns indentation of previous line,
 when that line is empty, looks at the line before it etc."
@@ -49,8 +59,8 @@ when that line is empty, looks at the line before it etc."
     (beginning-of-line)
     (if (and (looking-at "^$") (> (point) 1))
         (js2mods-previous-line-indent)
-      (looking-at "^\\( *\\)")
-      (length (match-string 1)))))
+      (looking-at "^\\(\\s-*\\)")
+      (length (js2mods-untabify (match-string 1))))))
 
 (defun js2mods-previous-line-is-indent-line ()
   "Determines if previous line ends with (, {, ["
@@ -58,7 +68,7 @@ when that line is empty, looks at the line before it etc."
       (save-excursion
         (forward-line -1)
         (beginning-of-line)
-        (looking-at "^.*[[({] *$"))
+        (looking-at "^.*[[({]\\s-*$"))
     nil))
 
 (defun js2mods-line-is-unindent-line ()
@@ -73,7 +83,7 @@ when that line is empty, looks at the line before it etc."
       (save-excursion
         (forward-line -1)
         (beginning-of-line)
-        (looking-at "^ */\\*\\* *$"))
+        (looking-at "^\\s-*/\\*\\*\\s-*$"))
     nil))
 
 (defun js2mods-previous-line-is-doc-comment-end ()
@@ -82,14 +92,14 @@ when that line is empty, looks at the line before it etc."
       (save-excursion
         (forward-line -1)
         (beginning-of-line)
-        (looking-at "^ *\\*/ *$"))
+        (looking-at "^\\s-*\\*/\\s-*$"))
     nil))
 
 (defun js2mods-line-is-oneline-comment ()
   "Determines if current line begins with //"
   (save-excursion
     (beginning-of-line)
-    (looking-at "^ *//")))
+    (looking-at "^\\s-*//")))
 
 (add-hook 'js2-indent-hook 'js2mods-indent)
 
