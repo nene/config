@@ -75,7 +75,7 @@ when that line is empty, looks at the line before it etc."
   "Determines if current line begins with ), }, ]"
   (save-excursion
     (beginning-of-line)
-    (looking-at "^[ ]*\\(}\\|)\\|]\\)")))
+    (looking-at "^\\s-*\\(}\\|)\\|]\\)")))
 
 (defun js2mods-previous-line-is-doc-comment-start ()
   "Determines if previous line is /**"
