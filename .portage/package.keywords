@@ -1,0 +1,26 @@
+# Current ktorrent doesn't compile with latest kde
+# So using newer ktorrent as suggested in Gentoo forum / bug tracker.
+=net-libs/libktorrent-1.2.0
+=net-p2p/ktorrent-4.2.0
+
+# vlc-1.1.13 crashes with current nvidia-drivers.
+=media-video/vlc-2.0.1
+
+# Unmask NodeJS 0.6
+# The official homepage currently offers 0.6.15 for download.
+# Currently all NodeJS versions are masked.
+=net-libs/nodejs-0.6.14
+
+# unmask mongodb and snappy which it uses
+# both are currently completely masked
+dev-db/mongodb
+app-arch/snappy
+
+# the damn skype is masked
+net-im/skype
+
+# Try out this app launcher.
+x11-misc/launchy
+
+# Try out this photo editor/organizer
+media-gfx/darktable

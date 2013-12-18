@@ -132,6 +132,8 @@
 
 (load "scss-mode")
 
+(load "zencoding-mode")
+
 
 ;; Remove trailing whitespace when saving file in most modes
 (load "ws-trim")

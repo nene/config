@@ -40,7 +40,9 @@
 .cruise/
 .crystalspace/
 .cshrc
+.dbshell
 .dbus
+.designer/
 .directory
 .dmrc
 .dvdcss/
@@ -86,6 +88,8 @@
 .mplayer
 .mysql_history
 .nexuiz
+.npm/
+.nv/
 .opera
 .p7zip
 .pki
