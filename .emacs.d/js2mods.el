@@ -208,6 +208,10 @@ when that line is empty, looks at the line before it etc."
   (interactive "sFind SCSS: ")
   (grep-find (concat "find . -type f -iname '*.scss' -print0 | xargs -0 grep -nH -e '" needle "'")))
 
+(defun phpgrep (needle)
+  (interactive "sFind PHP: ")
+  (grep-find (concat "find . -type f -iname '*.php' -print0 | xargs -0 grep -nH -e '" needle "'")))
+
 (defun sdk-grep (needle)
   (interactive "sFind SDK JS: ")
   (grep-find (concat "find ~/work/SDK/extjs/src ~/work/SDK/platform/src ~/work/SDK/platform/core/src -iname '*.js' -print0 | xargs -0 grep -nH -e '" needle "'")))
