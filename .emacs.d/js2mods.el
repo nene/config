@@ -49,7 +49,7 @@
 
 (defun js2mods-untabify (str)
   "Replaces tabs with spaces according to current tab width"
-  (replace-regexp-in-string "\\t" (js2mods-string-repeat " " js2mods-indent-tab-width) str))
+  (replace-regexp-in-string "\t" (js2mods-string-repeat "-" js2mods-indent-tab-width) str))
 
 (defun js2mods-previous-line-indent ()
   "Returns indentation of previous line,
