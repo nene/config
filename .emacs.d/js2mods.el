@@ -225,3 +225,21 @@ when that line is empty, looks at the line before it etc."
   (grep-find (concat "find ~/rrsoft/parim -iname '*.js' -or -iname '*.php' -print0 | xargs -0 grep -nH -e '" needle "'")))
 
 
+(defun jshint-to-string ()
+  (let ((fname (file-relative-name (buffer-file-name))))
+    (shell-command-to-string (concat "jshint " fname " | sed 's/: line /:/; s/, col /:/; s/, /: /'"))))
+
+(defun jshint-switch-to-clean-buffer (name)
+  "Kills old buffer (if present) and opens a new one."
+  (if (get-buffer name)
+      (kill-buffer name))
+  (switch-to-buffer name))
+
+(defun jshint ()
+  (interactive)
+  (let ((warnings (jshint-to-string)))
+    (split-window-vertically)
+    (other-window 1)
+    (jshint-switch-to-clean-buffer "*jshint warnings*")
+    (insert warnings)
+    (grep-mode)))
