@@ -222,7 +222,7 @@ when that line is empty, looks at the line before it etc."
 
 (defun rrsoft-grep (needle)
   (interactive "sFind JS&PHP in parim/: ")
-  (grep-find (concat "find ~/rrsoft/parim -iname '*.js' -or -iname '*.php' -print0 | xargs -0 grep -nH -e '" needle "'")))
+  (grep-find (concat "find ~/rrsoft/parim -iname '*.js' -print0 -or -iname '*.php' -print0 | xargs -0 grep -nH -e '" needle "'")))
 
 
 (defun jshint-to-string ()
