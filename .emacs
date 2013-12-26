@@ -144,9 +144,10 @@
   (setq js2mods-delete-trailing-whitespace-var (not js2mods-delete-trailing-whitespace-var))
   (message (concat "delete-trailing-whitespace is " (if js2mods-delete-trailing-whitespace-var "on" "off"))))
 ;; Delete trailing whitespace if the option is set,
-;; but never when inside /work/SDK/ dir
+;; but never when inside: /work/SDK/ or /work/docs.sencha.com/repos/
 (defun js2mods-maybe-delete-trailing-whitespace ()
   (when (and (not (string-match "/work/SDK/" (buffer-file-name)))
+             (not (string-match "/work/docs.sencha.com/repos/" (buffer-file-name)))
              js2mods-delete-trailing-whitespace-var) (delete-trailing-whitespace)))
 (add-hook 'js2-mode-hook '(lambda () (add-hook 'before-save-hook 'js2mods-maybe-delete-trailing-whitespace)))
 
