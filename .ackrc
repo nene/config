@@ -1,0 +1,3 @@
+# Support for SCSS files
+--type-set=scss=.scss
+--type-set=md=.md
