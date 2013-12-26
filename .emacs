@@ -170,3 +170,5 @@
 (setq twittering-use-master-password t)
 
 (global-set-key "\C-xt" 'twit)
+
+(require 'coffee-mode)
