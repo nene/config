@@ -1,0 +1,20 @@
+[ui]
+username = Rene Saarsoo <nene@triin.net>
+ssh = ssh -C
+
+[hostfingerprints]
+bitbucket.org = 24:9c:45:8b:9c:aa:ba:55:4e:01:6d:58:ff:e4:28:7d:2a:14:ae:3b
+
+[extensions]
+color =
+pager =
+graphlog =
+
+[pager]
+pager = LESS='FRX' less -r
+attend = annotate, cat, diff, export, glog, log, qdiff, slog
+
+[alias]
+slog = log --style ~/.hgrc.d/slog.ini
+
+

@@ -1,0 +1,34 @@
+Processor type and features  --->
+  [*] Symmetric multi-processing support
+  Processor family (AMD-Opteron/Athlon64)  --->
+    (*) Opteron/Athlon64/Hammer/K8
+Executable file formats / Emulations  --->
+   [*] IA32 Emulation
+
+Device Drivers --->
+  Generic Driver Options --->
+    -*- Maintain a devtmpfs filesystem to mount at /dev
+  Network device support --->
+    [*] Ethernet driver support --->
+        [*] Intel devices
+            <*> Intel(R) PRO/1000 PCI-Express Gigabit Ethernet support
+
+    [*] Wireless LAN --->
+        <*> Broadcom 43xx wireless support (mac80211 stack)
+  Sound card support --->
+    <*> Advanced Linux Sound Architecture --->
+        [*] PCI sound devices
+            <*> Intel HD Audio --->
+  Graphics support --->
+    <*> Nouveau (nVidia) cards
+        Console display driver support --->
+           (256) Scrollback buffer size (in KB)
+
+File systems --->
+(Select one or more of the following options as needed by your system)
+  <*> Second extended fs support
+  <*> The Extended 4 (ext4) filesystem
+  <*> FUSE (Filesystem in Userspace) support
+  Pseudo Filesystems --->
+    -*- /proc file system support
+    -*- Tmpfs virtual memory file system support (former shm fs)

@@ -41,6 +41,16 @@
          (indent-line-to (js2mods-previous-line-indent))))
   t)
 
+(defun js2mods-string-repeat (str n)
+  (let ((retval ""))
+    (dotimes (i n)
+      (setq retval (concat retval str)))
+    retval))
+
+(defun js2mods-untabify (str)
+  "Replaces tabs with spaces according to current tab width"
+  (replace-regexp-in-string "\t" (js2mods-string-repeat "-" js2mods-indent-tab-width) str))
+
 (defun js2mods-previous-line-indent ()
   "Returns indentation of previous line,
 when that line is empty, looks at the line before it etc."
@@ -49,8 +59,8 @@ when that line is empty, looks at the line before it etc."
     (beginning-of-line)
     (if (and (looking-at "^$") (> (point) 1))
         (js2mods-previous-line-indent)
-      (looking-at "^\\( *\\)")
-      (length (match-string 1)))))
+      (looking-at "^\\(\\s-*\\)")
+      (length (js2mods-untabify (match-string 1))))))
 
 (defun js2mods-previous-line-is-indent-line ()
   "Determines if previous line ends with (, {, ["
@@ -58,14 +68,14 @@ when that line is empty, looks at the line before it etc."
       (save-excursion
         (forward-line -1)
         (beginning-of-line)
-        (looking-at "^.*[[({] *$"))
+        (looking-at "^.*[[({]\\s-*$"))
     nil))
 
 (defun js2mods-line-is-unindent-line ()
   "Determines if current line begins with ), }, ]"
   (save-excursion
     (beginning-of-line)
-    (looking-at "^[ ]*\\(}\\|)\\|]\\)")))
+    (looking-at "^\\s-*\\(}\\|)\\|]\\)")))
 
 (defun js2mods-previous-line-is-doc-comment-start ()
   "Determines if previous line is /**"
@@ -73,7 +83,7 @@ when that line is empty, looks at the line before it etc."
       (save-excursion
         (forward-line -1)
         (beginning-of-line)
-        (looking-at "^ */\\*\\* *$"))
+        (looking-at "^\\s-*/\\*\\*\\s-*$"))
     nil))
 
 (defun js2mods-previous-line-is-doc-comment-end ()
@@ -82,14 +92,14 @@ when that line is empty, looks at the line before it etc."
       (save-excursion
         (forward-line -1)
         (beginning-of-line)
-        (looking-at "^ *\\*/ *$"))
+        (looking-at "^\\s-*\\*/\\s-*$"))
     nil))
 
 (defun js2mods-line-is-oneline-comment ()
   "Determines if current line begins with //"
   (save-excursion
     (beginning-of-line)
-    (looking-at "^ *//")))
+    (looking-at "^\\s-*//")))
 
 (add-hook 'js2-indent-hook 'js2mods-indent)
 
@@ -188,17 +198,48 @@ when that line is empty, looks at the line before it etc."
 
 (defun jsgrep (needle)
   (interactive "sFind JS: ")
-  (grep-find (concat "find . -type f -iname '*.js' -print0 | xargs -0 -e grep -nH -e '" needle "'")))
+  (grep-find (concat "find . -type f -iname '*.js' -print0 | xargs -0 grep -nH -e '" needle "'")))
 
 (defun rbgrep (needle)
   (interactive "sFind Ruby: ")
-  (grep-find (concat "find . -type f -iname '*.rb' -print0 | xargs -0 -e grep -nH -e '" needle "'")))
+  (grep-find (concat "find . -type f -iname '*.rb' -print0 | xargs -0 grep -nH -e '" needle "'")))
 
+(defun cssgrep (needle)
+  (interactive "sFind SCSS: ")
+  (grep-find (concat "find . -type f -iname '*.scss' -print0 | xargs -0 grep -nH -e '" needle "'")))
+
+(defun phpgrep (needle)
+  (interactive "sFind PHP: ")
+  (grep-find (concat "find . -type f -iname '*.php' -print0 | xargs -0 grep -nH -e '" needle "'")))
 
 (defun sdk-grep (needle)
   (interactive "sFind SDK JS: ")
-  (grep-find (concat "find ~/work/SDK/extjs/src ~/work/SDK/platform/src ~/work/SDK/platform/core/src -iname '*.js' -print0 | xargs -0 -e grep -nH -e '" needle "'")))
+  (grep-find (concat "find ~/work/SDK/extjs/src ~/work/SDK/platform/src ~/work/SDK/platform/core/src -iname '*.js' -print0 | xargs -0 grep -nH -e '" needle "'")))
 
 (defun touch-grep (needle)
   (interactive "sFind Touch JS: ")
-  (grep-find (concat "find ~/work/SDK/touch/src -iname '*.js' -print0 | xargs -0 -e grep -nH -e '" needle "'")))
+  (grep-find (concat "find ~/work/SDK/touch/src -iname '*.js' -print0 | xargs -0 grep -nH -e '" needle "'")))
+
+(defun rrsoft-grep (needle)
+  (interactive "sFind JS&PHP in parim/: ")
+  (grep-find (concat "find ~/rrsoft/parim -iname '*.js' -print0 -or -iname '*.php' -print0 | xargs -0 grep -nH -e '" needle "'")))
+
+
+(defun jshint-to-string ()
+  (let ((fname (file-relative-name (buffer-file-name))))
+    (shell-command-to-string (concat "jshint " fname " | sed 's/: line /:/; s/, col /:/; s/, /: /'"))))
+
+(defun jshint-switch-to-clean-buffer (name)
+  "Kills old buffer (if present) and opens a new one."
+  (if (get-buffer name)
+      (kill-buffer name))
+  (switch-to-buffer name))
+
+(defun jshint ()
+  (interactive)
+  (let ((warnings (jshint-to-string)))
+    (split-window-vertically)
+    (other-window 1)
+    (jshint-switch-to-clean-buffer "*jshint warnings*")
+    (insert warnings)
+    (grep-mode)))

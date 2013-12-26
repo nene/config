@@ -22,13 +22,13 @@
 
 function parse_git_branch {
   top=$(git rev-parse --show-toplevel 2> /dev/null)
-  if [ "$top" != "/home/nene" ]; then
+  if [ "$top" != "/home/nene" ] && [ "$top" != "/Users/renesaarsoo" ]; then
     ref=$(git symbolic-ref HEAD 2> /dev/null) || return
     echo "("${ref#refs/heads/}") "
   fi
 }
 
-PS1="\[\033[31m\]\u@\h\[\033[0m\] \[\033[32m\]\W \[\033[0;33m\]\$(parse_git_branch)\[\033[32m\]\$ \[\033[0m\]"
+PS1="\[\033[31m\]rene@sencha\[\033[0m\] \[\033[32m\]\W \[\033[0;33m\]\$(parse_git_branch)\[\033[32m\]\$ \[\033[0m\]"
 
 
 # Exports
@@ -53,6 +53,10 @@ if [[ `uname` == 'FreeBSD' ]]; then
     alias ls="ls -G"
     alias la="ls -a"
     alias ll="ls -lh"
+elif [[ `uname` == 'Darwin' ]]; then
+    alias ls="ls -G"
+    alias la="ls -aG"
+    alias ll="ls -lhG"
 elif [[ `uname` == 'Linux' ]]; then
     eval `dircolors -b /etc/DIR_COLORS`
     alias ls="ls --color=auto"

@@ -149,3 +149,14 @@ When no region active, applies command to whole buffer."
   
 (global-set-key (kbd "s-<right>") 'forward-camelcase-word)
 (global-set-key (kbd "s-<left>") 'backward-camelcase-word)
+
+;; OSX specific shortcuts
+
+(if (eq system-type 'darwin)
+  (progn
+    (osx-key-mode nil)
+    (setq mac-command-modifier 'hyper)
+    (global-set-key [(hyper x)] 'kill-region)
+    (global-set-key [(hyper c)] 'kill-ring-save)
+    (global-set-key [(hyper v)] 'yank)
+    (global-set-key [(hyper z)] 'undo)))

@@ -4,7 +4,7 @@
 
 (setq default-tab-width 4)
 (setq-default indent-tabs-mode nil)
-(setq-default c-basic-offset 2)
+(setq-default c-basic-offset 4)
 
 (global-set-key (kbd "RET") 'newline-and-indent)
 
@@ -28,12 +28,13 @@
 	(define-key ruby-mode-map (kbd "RET") 'newline-and-indent)
 	(define-key ruby-mode-map (kbd "TAB") 'indent-line-or-region)))
 
-(add-hook 'javascript-mode-hook
-  (lambda ()
-	(define-key javascript-mode-map (kbd "TAB") 'indent-line-or-region)))
+(add-hook 'js2-mode-hook
+  '(lambda ()
+    (set-variable 'indent-tabs-mode t)))
 
 (add-hook 'php-mode-hook
   (lambda ()
-    (setq c-basic-offset 2)
+    (setq indent-tabs-mode t)
+    (setq c-basic-offset 4)
 	(define-key php-mode-map (kbd "TAB") 'indent-line-or-region)))
 
