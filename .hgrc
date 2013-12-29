@@ -10,6 +10,7 @@ color =
 pager =
 graphlog =
 rebase =
+histedit =
 
 [pager]
 pager = LESS='FRX' less -r
