@@ -195,34 +195,40 @@ when that line is empty, looks at the line before it etc."
   "  }\n"
   "});\n")
 
+(defun js2mods-grep-find-exts (extensions)
+  (mapconcat (lambda (ext) (concat "-iname '*." ext "' -print0")) extensions " -or "))
+
+(defun js2mods-grep-find (path extensions needle)
+  (grep-find
+   (concat "find " path " " (js2mods-grep-find-exts extensions) " | xargs -0 grep -nH -e '" needle "'")))
 
 (defun jsgrep (needle)
   (interactive "sFind JS: ")
-  (grep-find (concat "find . -type f -iname '*.js' -print0 | xargs -0 grep -nH -e '" needle "'")))
+  (js2mods-grep-find "." '("js") needle))
 
 (defun rbgrep (needle)
   (interactive "sFind Ruby: ")
-  (grep-find (concat "find . -type f -iname '*.rb' -print0 | xargs -0 grep -nH -e '" needle "'")))
+  (js2mods-grep-find "." '("rb") needle))
 
 (defun cssgrep (needle)
   (interactive "sFind SCSS: ")
-  (grep-find (concat "find . -type f -iname '*.scss' -print0 | xargs -0 grep -nH -e '" needle "'")))
+  (js2mods-grep-find "." '("scss") needle))
 
 (defun phpgrep (needle)
   (interactive "sFind PHP: ")
-  (grep-find (concat "find . -type f -iname '*.php' -print0 | xargs -0 grep -nH -e '" needle "'")))
+  (js2mods-grep-find "." '("php") needle))
 
 (defun sdk-grep (needle)
   (interactive "sFind SDK JS: ")
-  (grep-find (concat "find ~/work/SDK/extjs/src ~/work/SDK/platform/src ~/work/SDK/platform/core/src -iname '*.js' -print0 | xargs -0 grep -nH -e '" needle "'")))
+  (js2mods-grep-find "~/work/SDK/extjs/src ~/work/SDK/platform/src ~/work/SDK/platform/core/src" '("js") needle))
 
 (defun touch-grep (needle)
   (interactive "sFind Touch JS: ")
-  (grep-find (concat "find ~/work/SDK/touch/src -iname '*.js' -print0 | xargs -0 grep -nH -e '" needle "'")))
+  (js2mods-grep-find "~/work/SDK/touch/src" '("js") needle))
 
 (defun rrsoft-grep (needle)
   (interactive "sFind JS&PHP&CSS in parim/: ")
-  (grep-find (concat "find ~/rrsoft/parim -iname '*.js' -print0 -or -iname '*.php' -print0 -or -iname '*.css' -print0 | xargs -0 grep -nH -e '" needle "'")))
+  (js2mods-grep-find "~/rrsoft/parim" '("php" "js" "css") needle))
 
 
 (defun jshint-to-string ()
