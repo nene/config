@@ -221,8 +221,8 @@ when that line is empty, looks at the line before it etc."
   (grep-find (concat "find ~/work/SDK/touch/src -iname '*.js' -print0 | xargs -0 grep -nH -e '" needle "'")))
 
 (defun rrsoft-grep (needle)
-  (interactive "sFind JS&PHP in parim/: ")
-  (grep-find (concat "find ~/rrsoft/parim -iname '*.js' -print0 -or -iname '*.php' -print0 | xargs -0 grep -nH -e '" needle "'")))
+  (interactive "sFind JS&PHP&CSS in parim/: ")
+  (grep-find (concat "find ~/rrsoft/parim -iname '*.js' -print0 -or -iname '*.php' -print0 -or -iname '*.css' -print0 | xargs -0 grep -nH -e '" needle "'")))
 
 
 (defun jshint-to-string ()
