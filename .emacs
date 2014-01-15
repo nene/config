@@ -131,6 +131,7 @@
 (add-to-list 'auto-mode-alist '("\.gemspec$" . ruby-mode))
 
 (load "scss-mode")
+(load "less-css-mode")
 
 (load "zencoding-mode")
 
