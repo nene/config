@@ -34,7 +34,7 @@
 
 (add-hook 'php-mode-hook
   (lambda ()
-    (setq indent-tabs-mode t)
+    (setq indent-tabs-mode nil)
     (setq c-basic-offset 4)
 	(define-key php-mode-map (kbd "TAB") 'indent-line-or-region)))
 
