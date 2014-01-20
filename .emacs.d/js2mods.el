@@ -210,9 +210,13 @@ when that line is empty, looks at the line before it etc."
   (interactive "sFind Ruby: ")
   (js2mods-grep-find "." '("rb") needle))
 
-(defun cssgrep (needle)
+(defun scssgrep (needle)
   (interactive "sFind SCSS: ")
   (js2mods-grep-find "." '("scss") needle))
+
+(defun lessgrep (needle)
+  (interactive "sFind LESS files: ")
+  (js2mods-grep-find "." '("less") needle))
 
 (defun phpgrep (needle)
   (interactive "sFind PHP: ")
