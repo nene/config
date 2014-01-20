@@ -30,7 +30,7 @@
 
 (add-hook 'js2-mode-hook
   '(lambda ()
-    (set-variable 'indent-tabs-mode t)))
+    (set-variable 'indent-tabs-mode nil)))
 
 (add-hook 'php-mode-hook
   (lambda ()
