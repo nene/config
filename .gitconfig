@@ -16,5 +16,6 @@
 	ci = commit
 	co = checkout
 	slog = log --format=format:'%C(yellow)%h %Cgreen%an - %Creset%s %Cblue(%ar)%C(blue bold)%d%Creset' --graph
+	stepback = reset --hard HEAD^
 [diff "podiff"]
 	textconv = strip-po-comments

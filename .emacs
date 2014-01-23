@@ -97,7 +97,7 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#ffffff" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 110 :width normal :foundry "unknown" :family "Monaco"))))
+ '(default ((t (:inherit nil :stipple nil :background "#ffffff" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 90 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
  '(font-lock-comment-face ((((class color) (min-colors 88) (background light)) (:foreground "#888"))))
  '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
  '(font-lock-string-face ((((class color) (min-colors 88) (background light)) (:foreground "FireBrick")))))
@@ -131,6 +131,7 @@
 (add-to-list 'auto-mode-alist '("\.gemspec$" . ruby-mode))
 
 (load "scss-mode")
+(load "less-css-mode")
 
 (load "zencoding-mode")
 (load "smarty-mode")
@@ -160,5 +161,7 @@
 ;; (require 'twittering-mode)
 ;; (setq twittering-icon-mode t)
 ;; (setq twittering-use-master-password t)
-
 ;; (global-set-key "\C-xt" 'twit)
+
+
+(require 'coffee-mode)
