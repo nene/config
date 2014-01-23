@@ -133,7 +133,9 @@
 (load "scss-mode")
 
 (load "zencoding-mode")
+(load "smarty-mode")
 
+(add-to-list 'auto-mode-alist '("\.htm$" . smarty-mode))
 
 ;; Remove trailing whitespace when saving file in most modes
 (load "ws-trim")
