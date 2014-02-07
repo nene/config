@@ -246,7 +246,7 @@ when that line is empty, looks at the line before it etc."
 
 (defun spl-grep (needle)
   (interactive "sFind Sportlyzer sources/: ")
-  (js2mods-grep-find "~/work/sport" '("php" "js" "css" "htm" "html") needle '("c_tpl" ".git" "build" "cache" "node_modules")))
+  (js2mods-grep-find "~/work/sport" '("php" "js" "css" "htm" "html") needle '("c_tpl" ".git" "build" "cache" "node_modules" "js/planner/Archive_newest")))
 
 
 (defun jshint-to-string ()
