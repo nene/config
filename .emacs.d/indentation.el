@@ -30,11 +30,11 @@
 
 (add-hook 'js2-mode-hook
   '(lambda ()
-    (set-variable 'indent-tabs-mode nil)))
+    (set-variable 'indent-tabs-mode t)))
 
 (add-hook 'php-mode-hook
   (lambda ()
-    (setq indent-tabs-mode nil)
+    (setq indent-tabs-mode t)
     (setq c-basic-offset 4)
 	(define-key php-mode-map (kbd "TAB") 'indent-line-or-region)))
 
