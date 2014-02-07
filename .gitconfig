@@ -19,3 +19,5 @@
 	stepback = reset --hard HEAD^
 [diff "podiff"]
 	textconv = strip-po-comments
+[svn]
+    rmdir = true
