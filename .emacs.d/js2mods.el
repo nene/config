@@ -195,12 +195,26 @@ when that line is empty, looks at the line before it etc."
   "  }\n"
   "});\n")
 
-(defun js2mods-grep-find-exts (extensions)
-  (mapconcat (lambda (ext) (concat "-iname '*." ext "' -print0")) extensions " -or "))
+(defun js2mods-grep-find-exclude (base paths)
+  (if paths
+      (concat "\\( "
+              (mapconcat (lambda (p) (concat "-path " base "/" p)) paths " -o ")
+              " \\) -prune -o")
+    ""))
 
-(defun js2mods-grep-find (path extensions needle)
+(defun js2mods-grep-find-exts (extensions)
+  (concat "\\( "
+          (mapconcat (lambda (ext) (concat "-iname '*." ext "'")) extensions " -o ")
+          " \\)"))
+
+(defun js2mods-grep-find (path extensions needle &optional exclude)
   (grep-find
-   (concat "find " path " " (js2mods-grep-find-exts extensions) " | xargs -0 grep -nH -e '" needle "'")))
+   (concat "find " path " "
+           (js2mods-grep-find-exclude path exclude)
+           " "
+           (js2mods-grep-find-exts extensions)
+           " -type f -print0"
+           " | xargs -0 grep -nH -e '" needle "'")))
 
 (defun jsgrep (needle)
   (interactive "sFind JS: ")
@@ -230,9 +244,9 @@ when that line is empty, looks at the line before it etc."
   (interactive "sFind Touch JS: ")
   (js2mods-grep-find "~/work/SDK/touch/src" '("js") needle))
 
-(defun rrsoft-grep (needle)
-  (interactive "sFind JS&PHP&CSS in parim/: ")
-  (js2mods-grep-find "~/rrsoft/parim" '("php" "js" "css") needle))
+(defun spl-grep (needle)
+  (interactive "sFind Sportlyzer sources/: ")
+  (js2mods-grep-find "~/work/sport" '("php" "js" "css" "htm" "html") needle '("c_tpl" ".git" "build" "cache" "node_modules" "js/planner/Archive_newest")))
 
 
 (defun jshint-to-string ()
