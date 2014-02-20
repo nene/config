@@ -61,3 +61,7 @@
     (setq c-basic-offset 4)
 	(define-key php-mode-map (kbd "TAB") 'indent-line-or-region)))
 
+(add-hook 'less-css-mode-hook
+  '(lambda ()
+     (if (file-in-directory "~/work/sport")
+         (set-variable 'indent-tabs-mode t))))
