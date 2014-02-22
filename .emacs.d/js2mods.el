@@ -229,7 +229,7 @@ when that line is empty, looks at the line before it etc."
   (js2mods-grep-find "." '("scss") needle))
 
 (defun lessgrep (needle)
-  (interactive "sFind LESS files: ")
+  (interactive "sFind LESS: ")
   (js2mods-grep-find "." '("less") needle))
 
 (defun phpgrep (needle)
