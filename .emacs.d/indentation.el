@@ -49,19 +49,20 @@
 	(define-key ruby-mode-map (kbd "RET") 'newline-and-indent)
 	(define-key ruby-mode-map (kbd "TAB") 'indent-line-or-region)))
 
-;; Enable TABs only in Sportlyzer source
-(add-hook 'js2-mode-hook
-  '(lambda ()
-     (if (file-in-directory "~/work/sport")
-         (set-variable 'indent-tabs-mode t))))
-
 (add-hook 'php-mode-hook
   (lambda ()
-    (setq indent-tabs-mode t)
-    (setq c-basic-offset 4)
 	(define-key php-mode-map (kbd "TAB") 'indent-line-or-region)))
 
-(add-hook 'less-css-mode-hook
-  '(lambda ()
-     (if (file-in-directory "~/work/sport")
-         (set-variable 'indent-tabs-mode t))))
+;; Enable TABs only in Sportlyzer source
+(mapcar (lambda (hook)
+          (add-hook hook
+                    '(lambda ()
+                       (if (file-in-directory "~/work/sport")
+                           (set-variable 'indent-tabs-mode t)))))
+        '(php-mode-hook
+          js2-mode-hook
+          less-css-mode-hook
+          html-mode-hook
+          smarty-mode-hook))
+
+
