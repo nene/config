@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Get SHA1 hash of the next commit to be reviewed
+next=$(git log reviewed..HEAD --reverse --format=%H | head -n 1)
+
+# when some commits left to be reviewed
+if [ $next ]
+then
+    # Display the commit
+    git show --stat -p $next
+
+    # Remove the reviewed mark from previous commit
+    git tag -d reviewed
+
+    # Mark this commit as reviewed
+    git tag reviewed $next
+else
+    echo "Nothing to review :)"
+    exit
+fi
+
