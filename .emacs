@@ -115,6 +115,9 @@
 ;; My PHP mode customizations
 (load "~/.emacs.d/php")
 
+;; My sportlyzer customizations
+(load "spl")
+
 (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.text" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
@@ -165,3 +168,4 @@
 
 
 (require 'coffee-mode)
+
