@@ -64,7 +64,6 @@
 (global-set-key (kbd "M-<right>") 'next-user-buffer)
 
 
-
 ;;
 ;; Ctrl-P now filters selected text with perl command
 ;;
@@ -159,4 +158,9 @@ When no region active, applies command to whole buffer."
     (global-set-key [(hyper x)] 'kill-region)
     (global-set-key [(hyper c)] 'kill-ring-save)
     (global-set-key [(hyper v)] 'yank)
-    (global-set-key [(hyper z)] 'undo)))
+    (global-set-key [(hyper z)] 'undo)
+    (global-set-key (kbd "C-<left>") 'left-word)
+    (global-set-key (kbd "C-<right>") 'right-word)
+    (define-key osx-key-mode-map (kbd "C-a") 'mark-whole-buffer)
+    (define-key osx-key-mode-map (kbd "<home>") 'beginning-of-line)
+    (define-key osx-key-mode-map (kbd "<end>") 'end-of-line)))
