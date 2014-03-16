@@ -195,64 +195,6 @@ when that line is empty, looks at the line before it etc."
   "  }\n"
   "});\n")
 
-(defun js2mods-grep-find-exclude (base paths)
-  (if paths
-      (concat "\\( "
-              (mapconcat (lambda (p) (concat "-path " base "/" p)) paths " -o ")
-              " \\) -prune -o")
-    ""))
-
-(defun js2mods-grep-find-exts (extensions)
-  (concat "\\( "
-          (mapconcat (lambda (ext) (concat "-iname '*." ext "'")) extensions " -o ")
-          " \\)"))
-
-(defun js2mods-grep-find (path extensions needle &optional exclude)
-  (grep-find
-   (concat "find " path " "
-           (js2mods-grep-find-exclude path exclude)
-           " "
-           (js2mods-grep-find-exts extensions)
-           " -type f -print0"
-           " | xargs -0 grep -nH -e '" needle "'")))
-
-(defun jsgrep (needle)
-  (interactive "sFind JS: ")
-  (js2mods-grep-find "." '("js") needle))
-
-(defun rbgrep (needle)
-  (interactive "sFind Ruby: ")
-  (js2mods-grep-find "." '("rb") needle))
-
-(defun scssgrep (needle)
-  (interactive "sFind SCSS: ")
-  (js2mods-grep-find "." '("scss") needle))
-
-(defun lessgrep (needle)
-  (interactive "sFind LESS: ")
-  (js2mods-grep-find "." '("less") needle))
-
-(defun phpgrep (needle)
-  (interactive "sFind PHP: ")
-  (js2mods-grep-find "." '("php") needle))
-
-(defun htmgrep (needle)
-  (interactive "sFind HTM templates: ")
-  (js2mods-grep-find "." '("htm") needle))
-
-(defun sdk-grep (needle)
-  (interactive "sFind SDK JS: ")
-  (js2mods-grep-find "~/work/SDK/extjs/src ~/work/SDK/platform/src ~/work/SDK/platform/core/src" '("js") needle))
-
-(defun touch-grep (needle)
-  (interactive "sFind Touch JS: ")
-  (js2mods-grep-find "~/work/SDK/touch/src" '("js") needle))
-
-(defun spl-grep (needle)
-  (interactive "sFind Sportlyzer sources/: ")
-  (js2mods-grep-find "~/work/sport" '("php" "js" "json" "css" "less" "htm" "html") needle '("c_tpl" ".git" "build" "cache" "node_modules")))
-
-
 (defun jshint-to-string ()
   (let ((fname (file-relative-name (buffer-file-name))))
     (shell-command-to-string (concat "jshint " fname " | sed 's/: line /:/; s/, col /:/; s/, /: /'"))))
