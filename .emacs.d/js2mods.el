@@ -236,6 +236,10 @@ when that line is empty, looks at the line before it etc."
   (interactive "sFind PHP: ")
   (js2mods-grep-find "." '("php") needle))
 
+(defun htmgrep (needle)
+  (interactive "sFind HTM templates: ")
+  (js2mods-grep-find "." '("htm") needle))
+
 (defun sdk-grep (needle)
   (interactive "sFind SDK JS: ")
   (js2mods-grep-find "~/work/SDK/extjs/src ~/work/SDK/platform/src ~/work/SDK/platform/core/src" '("js") needle))
