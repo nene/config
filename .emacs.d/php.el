@@ -257,3 +257,16 @@ Or nil otherwise."
 (add-hook 'php-mode-hook (lambda ()
     (c-set-offset 'arglist-intro 'ywb-php-lineup-arglist-intro)
     (c-set-offset 'arglist-close 'ywb-php-lineup-arglist-close)))
+
+
+(defun php-symbol-lookup ()
+  "Looks up online documentation of the symbol at point."
+  (interactive)
+  (let ((symbol (symbol-at-point)))
+    (if (not symbol)
+        (message "No symbol at point.")
+
+      (browse-url (concat "http://php.net/manual-lookup.php?pattern="
+                          (symbol-name symbol))))))
+
+
