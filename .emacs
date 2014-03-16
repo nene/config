@@ -104,48 +104,43 @@
 
 
 ;;
-;; Includes
+;; Additional modes
 ;;
-
-;; My own mode-neutral customizations
-(load "global-keys")
-(load "indentation")
-;; (load "flymake-mods")
-
-;; My PHP mode customizations
-(load "~/.emacs.d/php")
-
-;; My sportlyzer customizations
-(load "spl")
 
 (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.text" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 
-;; JavaScript mode from Steve Yegge
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
-;; My JS2 mode customizations
-(load "js2mods")
+
+(load "scss-mode")
+
+(load "less-css-mode")
+
+(load "zencoding-mode")
+
+(load "smarty-mode")
+(add-to-list 'auto-mode-alist '("\.htm$" . smarty-mode))
 
 (add-to-list 'auto-mode-alist '("[Rr]akefile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\.gemspec$" . ruby-mode))
 
-(load "scss-mode")
-(load "less-css-mode")
+(require 'coffee-mode)
 
-(load "zencoding-mode")
-(load "smarty-mode")
-
-(add-to-list 'auto-mode-alist '("\.htm$" . smarty-mode))
-
-;; Remove trailing whitespace when saving file in most modes
 (load "ws-trim")
 (global-ws-trim-mode t)
 ;; don't do anything with leading whitespace.
 (remove-hook 'ws-trim-method-hook 'ws-trim-leading)
+
+;; Twittering Mode
+;; (add-to-list 'load-path "~/.emacs.d/twittering-mode")
+;; (require 'twittering-mode)
+;; (setq twittering-icon-mode t)
+;; (setq twittering-use-master-password t)
+;; (global-set-key "\C-xt" 'twit)
 
 (require 'anything-config)
 (setq anything-sources
@@ -159,13 +154,14 @@
   '(lambda ()
      (define-key c-mode-map (kbd "M-a") 'anything)))
 
-;; Twittering Mode
-;; (add-to-list 'load-path "~/.emacs.d/twittering-mode")
-;; (require 'twittering-mode)
-;; (setq twittering-icon-mode t)
-;; (setq twittering-use-master-password t)
-;; (global-set-key "\C-xt" 'twit)
+;;
+;; My own customizations
+;;
 
-
-(require 'coffee-mode)
-
+(load "global-keys")
+(load "indentation")
+;; (load "flymake-mods")
+(load "~/.emacs.d/php")
+(load "spl")
+(load "js2mods")
+(load "my-grep-find")
