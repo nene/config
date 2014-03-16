@@ -26,7 +26,7 @@
          (buffer (car list)))
     (while buffer
       (when (and (buffer-file-name buffer)
-                 (user-buffer-p (buffer-name buffer)))
+                 (not (system-buffer-p (buffer-name buffer))))
         (progn
           (set-buffer buffer)
           (revert-buffer t t t)))
@@ -51,7 +51,7 @@
   (interactive)
   (next-buffer)
   (let ((i 0))
-    (while (and (user-buffer-p (buffer-name)) (< i 100))
+    (while (and (system-buffer-p (buffer-name)) (< i 100))
       (setq i (1+ i)) (next-buffer))))
 
 (defun previous-user-buffer ()
@@ -59,12 +59,12 @@
   (interactive)
   (previous-buffer)
   (let ((i 0))
-    (while (and (user-buffer-p (buffer-name)) (< i 100))
+    (while (and (system-buffer-p (buffer-name)) (< i 100))
       (setq i (1+ i)) (previous-buffer))))
 
-(defun user-buffer-p (buffer-name)
+(defun system-buffer-p (buffer-name)
   "True when buffer name starts with the reserved * character."
-  (string-match "^*" (buffer-name)))
+  (string-match "^*" buffer-name))
 
 (global-set-key (kbd "M-<left>") 'previous-user-buffer)
 (global-set-key (kbd "M-<right>") 'next-user-buffer)
