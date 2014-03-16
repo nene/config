@@ -160,7 +160,6 @@
 
 (load "global-keys")
 (load "indentation")
-;; (load "flymake-mods")
 (load "~/.emacs.d/php")
 (load "spl")
 (load "js2mods")
