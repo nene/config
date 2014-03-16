@@ -4,33 +4,6 @@
 
 
 ;;
-;; PHP function name completions
-;;
-(add-hook
- 'php-mode-user-hook
- (lambda ()
-   (setq php-completion-file "~/.emacs.d/lisp/php-completions.txt")
-   (define-key php-mode-map (kbd "C-+") 'php-complete-function)))
-
-
-
-;;
-;; Shortuct for typing "array()"
-;;
-(defun php-insert-array (&optional count)
-    "Inserts PHP array() and places cursor inside braces."
-    (interactive "p")
-	(unless count (setq count 1))
-    (dotimes (i count)
-      (insert "array()")
-      (backward-char 1)))
-
-(add-hook 'php-mode-user-hook
-  '(lambda ()
-     (define-key php-mode-map (kbd "C-c a") 'php-insert-array)))
-
-
-;;
 ;; Loading PHP file with unit tests
 ;;
 (defun phpunit-test-file-name (php-filename)
@@ -156,50 +129,6 @@ Or nil otherwise."
   
 
 
-;;;
-;;; PHP find
-;;;
-(defun smarty-find-template-file ()
-  "Opens Smarty template file, associated with currently open PHP file."
-  (interactive)
-  (let ((filename (smarty-template-file-name (buffer-file-name))))
-    (if (file-exists-p filename)
-      (find-file filename)
-	  (when (y-or-n-p (concat "file " filename " not found. Create it? "))
-		(find-file filename)))))
-
-(defun smarty-template-file-name (php-filename)
-  "Transforms '/rent/app/HtmlComponent/EkspressRent/MyClass.php'
-           to '/rent/templates/templates/HtmlComponent/EkspressRent/MyClass.tpl'."
-  (replace-regexp-in-string
-    "/rent/app/HtmlComponent/EkspressRent/\\(.*\\)\.php"
-    "/rent/templates/templates/HtmlComponent/EkspressRent/\\1.tpl"
-    php-filename))
-
-
-
-;;
-;; Running all unit tests
-;;
-(defun phpunit-all-unit-tests ()
-  "Runs all unit tests."
-  (interactive)
-  (message "Running all unit tests...")
-  (phpunit-process-command "cd ~/rent/test/unit/; php AllTests.php"))
-
-
-
-(defun php-load-test-data ()
-  "Updates database with test-data and resizes test-images."
-  (interactive)
-  (shell-command
-   (concat
-	"cd ~/rent/db/test-data/; "
-	"php load-test-data.php; "
-	"cd ~/rent/web/ekspressrent.ee/car-img/; "
-	"php load-test-data.php; ")))
-
-
 (defun php-evaluate-region (start end)
   "Evaluates PHP code in selected region."
   
@@ -219,25 +148,6 @@ Or nil otherwise."
   (display-buffer "*php*"))
 
 
-
-
-(define-skeleton php-if
-  "insert PHP if statement."
-  nil
-  \n >
-  > "if ( " - " ) {" \n
-  > _ \n
-  > "}" >
-  )
-
-(define-skeleton php-array
-  "insert PHP array()"
-  nil
-  \n >
-  > "array(" \n
-  > _ \n
-  > ")" >
-  )
 
 
 ;;
