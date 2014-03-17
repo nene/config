@@ -13,3 +13,10 @@
 (defun spl-php-class-to-filename (classname)
   "Transforms PHP class name into relative file name."
   (concat "~/work/sport/AddonClasses/" (replace-regexp-in-string "_" "/" classname) ".php"))
+
+
+(defun spl-find-uses ()
+  "Greps for uses of function at point."
+  (interactive)
+  (when (thing-at-point 'symbol)
+    (spl-grep (concat "[:-][:>]" (thing-at-point 'symbol) "(") t)))
