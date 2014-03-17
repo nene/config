@@ -14,14 +14,14 @@
           (mapconcat (lambda (ext) (concat "-iname '*." ext "'")) extensions " -o ")
           " \\)"))
 
-(defun my-grep-find (path extensions needle &optional exclude)
+(defun my-grep-find (path extensions needle &optional exclude ignore-case)
   (grep-find
    (concat "find " path " "
            (my-grep-find-exclude path exclude)
            " "
            (my-grep-find-exts extensions)
            " -type f -print0"
-           " | xargs -0 grep -nH -e '" needle "'")))
+           " | xargs -0 grep -nH " (if ignore-case "-i" "") " -e '" needle "'")))
 
 (defun jsgrep (needle)
   (interactive "sFind JS: ")
@@ -55,6 +55,6 @@
   (interactive "sFind Touch JS: ")
   (my-grep-find "~/work/SDK/touch/src" '("js") needle))
 
-(defun spl-grep (needle)
+(defun spl-grep (needle &optional ignore-case)
   (interactive "sFind Sportlyzer sources/: ")
-  (my-grep-find "~/work/sport" '("php" "js" "json" "css" "less" "htm" "html") needle '("c_tpl" ".git" "build" "cache" "node_modules")))
+  (my-grep-find "~/work/sport" '("php" "js" "json" "css" "less" "htm" "html") needle '("c_tpl" ".git" "build" "cache" "node_modules") ignore-case))
