@@ -2,6 +2,29 @@
 
 # Get SHA1 hash of the next commit to be reviewed
 next=$(git log reviewed..HEAD --reverse --format=%H | head -n 1)
+# Get the author of the commit
+next_author=$(git log reviewed..HEAD --reverse --format=%an | head -n 1)
+
+while [ "$next_author" == "rene" ]; do
+    echo "Skipping my own commit..."
+
+    # Remove the reviewed mark from previous commit
+    git branch -d reviewed
+
+    # Mark this commit as reviewed
+    git branch reviewed $next
+
+    # Get SHA1 hash of the next commit to be reviewed
+    next=$(git log reviewed..HEAD --reverse --format=%H | head -n 1)
+    # Get the author of the commit
+    next_author=$(git log reviewed..HEAD --reverse --format=%an | head -n 1)
+done
+
+if [ "$next_author" == "Rene Saarsoo" ]
+then
+    echo "Nothing to review :)"
+    exit
+fi
 
 # when some commits left to be reviewed
 if [ $next ]
@@ -10,10 +33,10 @@ then
     git show --stat -p $next
 
     # Remove the reviewed mark from previous commit
-    git tag -d reviewed
+    git branch -d reviewed
 
     # Mark this commit as reviewed
-    git tag reviewed $next
+    git branch reviewed $next
 else
     echo "Nothing to review :)"
     exit
