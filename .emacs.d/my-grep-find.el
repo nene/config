@@ -57,4 +57,4 @@
 
 (defun spl-grep (needle &optional ignore-case)
   (interactive "sFind Sportlyzer sources/: ")
-  (my-grep-find "~/work/sport" '("php" "js" "json" "css" "less" "htm" "html") needle '("c_tpl" ".git" "build" "cache" "node_modules") ignore-case))
+  (my-grep-find "~/work/sport" '("php" "js" "json" "css" "less" "htm" "html") needle '("c_tpl" ".git" "build" "cache" "node_modules" "homepage/build") ignore-case))
