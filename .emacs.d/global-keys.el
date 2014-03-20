@@ -163,5 +163,18 @@ When no region active, applies command to whole buffer."
     (global-set-key (kbd "C-<right>") 'right-word)
     (define-key osx-key-mode-map (kbd "C-a") 'mark-whole-buffer)
     (define-key osx-key-mode-map (kbd "<home>") 'beginning-of-line)
-    (define-key osx-key-mode-map (kbd "<end>") 'end-of-line)))
-
+    (define-key osx-key-mode-map (kbd "<end>") 'end-of-line)
+    ;; Estonian-keyboard keys
+    (define-key key-translation-map (kbd "M-2") (kbd "@"))
+    (define-key key-translation-map (kbd "M-4") (kbd "$"))
+    (define-key key-translation-map (kbd "M-7") (kbd "{"))
+    (define-key key-translation-map (kbd "M-8") (kbd "["))
+    (define-key key-translation-map (kbd "M-9") (kbd "]"))
+    (define-key key-translation-map (kbd "M-0") (kbd "}"))
+    (define-key key-translation-map (kbd "M-+") (kbd "\\"))
+    ;; English-keyboard like keys on Estonian keymap
+    (define-key key-translation-map (kbd "€") (kbd "$"))
+    (define-key key-translation-map (kbd "M-ü") (kbd "{"))
+    (define-key key-translation-map (kbd "M-ö") (kbd "["))
+    (define-key key-translation-map (kbd "M-ä") (kbd "]"))
+    (define-key key-translation-map (kbd "M-õ") (kbd "}"))))
