@@ -172,6 +172,8 @@ When no region active, applies command to whole buffer."
     (define-key key-translation-map (kbd "M-9") (kbd "]"))
     (define-key key-translation-map (kbd "M-0") (kbd "}"))
     (define-key key-translation-map (kbd "M-+") (kbd "\\"))
+    (define-key key-translation-map (kbd "M-<") (kbd "|"))
+    (define-key key-translation-map (kbd "M-'") (kbd "^"))
     ;; English-keyboard like keys on Estonian keymap
     (define-key key-translation-map (kbd "€") (kbd "$"))
     (define-key key-translation-map (kbd "M-ü") (kbd "{"))
