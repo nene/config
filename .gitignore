@@ -18,6 +18,10 @@
 .emacs.d/twittering-mode
 .emacs.d/url
 
+# spl-update helper files/dirs
+.splrc
+.spl-tmp/
+
 .AbiSuite
 .PlaneShift/
 .Skype
