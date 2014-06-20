@@ -22,6 +22,9 @@
 .splrc
 .spl-tmp/
 
+# Sublime workspace
+lr-pom.sublime-workspace
+
 .AbiSuite
 .PlaneShift/
 .Skype
