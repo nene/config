@@ -1,4 +1,13 @@
-Install Sublime Package Manager.
+Configure sublime keyboard settings:
+
+[
+  { "keys": ["home"], "command": "move_to", "args": {"to": "bol"} },
+  { "keys": ["end"], "command": "move_to", "args": {"to": "eol"} },
+  { "keys": ["shift+end"], "command": "move_to", "args": { "to": "eol", "extend": true } },
+  { "keys": ["shift+home"], "command": "move_to", "args": { "to": "bol", "extend": true } }
+]
+
+Install Sublime Package Control.
 
 Plugins:
 
@@ -7,6 +16,7 @@ Plugins:
 - JSHint Gutter *
 - Modific (Highlight changed lines in gutter)
 - Sass
+- DockBlockr
 
 - Emmet
 - Can I Use
