@@ -12,6 +12,7 @@ pager =
 graphlog =
 rebase =
 histedit =
+record =
 
 [pager]
 pager = LESS='FRX' less -r
