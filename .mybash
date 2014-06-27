@@ -44,6 +44,9 @@ export HISTSIZE=1000
 HISTCONTROL=ignoredups
 shopt -s histappend
 
+# Disable inlusion of extended attributes to TAR files in OS X.
+export COPYFILE_DISABLE=true
+
 
 # In case it's not already so
 alias vi=vim
