@@ -6,11 +6,13 @@
       "path": "~/work/lr-pom",
       "folder_exclude_patterns": [
         "lr-center/node_modules",
+        "lr-center/test-js/node_modules",
         "lr-center/public/colorbox",
         "lr-center/public/javascripts/lib",
         "lr-center/public/javascripts/ace",
         "lr-center/public/filetree",
-        "lr-center/public/upload"
+        "lr-center/public/upload",
+        "lr-center/public/stylesheets/src/.sass-cache"
       ]
     }
   ]
