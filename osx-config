@@ -51,6 +51,7 @@ Install with npm (Globally with -g option):
 
 - jshint
 - karma
+- localtunnel
 
 # Configure LiveRebel dev environment
 
