@@ -18,6 +18,9 @@
 .emacs.d/twittering-mode
 .emacs.d/url
 
+# Ignre compiled python executables
+bin/*.pyc
+
 # spl-update helper files/dirs
 .splrc
 .spl-tmp/
