@@ -21,10 +21,6 @@
 # Ignre compiled python executables
 bin/*.pyc
 
-# spl-update helper files/dirs
-.splrc
-.spl-tmp/
-
 # Sublime workspace
 lr-pom.sublime-workspace
 
