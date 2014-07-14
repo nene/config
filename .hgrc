@@ -14,6 +14,7 @@ rebase =
 histedit =
 record =
 churn =
+bookmarks =
 blametrail = ~/bin/blametrail.py
 
 [pager]
@@ -23,4 +24,6 @@ attend = annotate, cat, diff, export, glog, log, qdiff, slog
 [alias]
 slog = log --style ~/.hgrc.d/slog.ini
 
+[bookmarks]
+track.current = True
 
