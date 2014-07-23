@@ -16,6 +16,7 @@ record =
 churn =
 bookmarks =
 blametrail = ~/bin/blametrail.py
+mq =
 
 [pager]
 pager = LESS='FRX' less -r
