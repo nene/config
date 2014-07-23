@@ -73,6 +73,12 @@ Install compass for SASS development:
 
     sudo gem install compass
 
+Install MySQL and grant access for your user:
+
+    brew install mysql
+    mysql -uroot
+    > GRANT ALL ON *.* TO 'nene'@'localhost' WITH GRANT OPTION;
+
 
 # Build LiveRebel
 
