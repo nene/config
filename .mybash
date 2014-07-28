@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Source this file from .bashrc
 
 # The modification of shell prompt
@@ -20,6 +21,11 @@
 # \nnn	Displays the corresponding octal character nnn
 # \j	Displays how many jobs the users currently has.
 
+DEFAULT="\[\033[0m\]"
+RED="\[\033[31m\]"
+GREEN="\[\033[32m\]"
+YELLOW="\[\033[0;33m\]"
+
 function parse_git_branch {
   top=$(git rev-parse --show-toplevel 2> /dev/null)
   if [ "$top" != "/home/nene" ] && [ "$top" != "/Users/renesaarsoo" ]; then
@@ -28,7 +34,20 @@ function parse_git_branch {
   fi
 }
 
-PS1="\[\033[31m\]rene@sencha\[\033[0m\] \[\033[32m\]\W \[\033[0;33m\]\$(parse_git_branch)\[\033[32m\]\$ \[\033[0m\]"
+function parse_hg_branch() {
+  branch=$(hg branch 2> /dev/null)
+  bookmark=$(hg bookmarks 2>/dev/null | awk '/\*/ {print $2}')
+  if [ "${branch}${bookmark}" ]; then
+    echo "($branch/$bookmark) "
+  fi
+}
+
+# Creates a custom prompt containing: <supplied-string> <dir-name> <git/hg-branch> $
+function create_PS1() {
+  echo "${RED}$1 ${GREEN}\W ${YELLOW}\$(parse_git_branch)\$(parse_hg_branch)${GREEN}\$ ${DEFAULT}"
+}
+
+PS1=$(create_PS1 "nene@sencha")
 
 
 # Exports
@@ -43,6 +62,9 @@ export HISTFILESIZE=20000
 export HISTSIZE=1000
 HISTCONTROL=ignoredups
 shopt -s histappend
+
+# Disable inlusion of extended attributes to TAR files in OS X.
+export COPYFILE_DISABLE=true
 
 
 # In case it's not already so

@@ -18,9 +18,11 @@
 .emacs.d/twittering-mode
 .emacs.d/url
 
-# spl-update helper files/dirs
-.splrc
-.spl-tmp/
+# Ignre compiled python executables
+bin/*.pyc
+
+# Sublime workspace
+*.sublime-workspace
 
 .AbiSuite
 .PlaneShift/

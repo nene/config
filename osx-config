@@ -1,0 +1,120 @@
+Configure:
+
+- dock to be smaller and hidden by default
+- Keyboard layout for Estonian
+- Keyboard shortcuts for navigating spaces
+- Terminal to use Pro color scheme
+
+Install:
+
+- Chrome
+- Sublime Text 3
+- Homebrew (Installs XCode command line tools)
+- JDK 7j
+- SourceTree (Git/Hg UI)
+- Skype
+- Firefox
+- VirtualBox
+
+Install with brew:
+
+- git
+- mercurial
+
+Generate Public/Private key pair for SSH:
+
+- ssh-keygen
+
+Copy it to Github account and Bitbucket accounts.
+
+Install my config dir:
+
+- git clone git@github.com:nene/config.git
+
+Create links from ~/. dir to config/ dir:
+
+- bin/
+- .gitconfig
+- .hgrc
+- .hgrc.d/
+
+Create .bashrc file with `source ~/config/.mybash` and additional settings.
+
+Create .bash_profile file with `source ~/.bashrc`
+
+Install with brew:
+
+- bash-completion (Note the message about configuring it in .bashrc)
+- nodejs (Includes npm)
+
+Install with npm (Globally with -g option):
+
+- jshint
+- karma
+- localtunnel
+
+# Configure LiveRebel dev environment
+
+The following is based on "Common developer intro" from:
+https://zeroturnaround.atlassian.net/wiki/pages/viewpage.action?spaceKey=JD&title=Development+Home
+
+Install with brew:
+
+- ant
+- homebrew/versions/maven30
+
+Get settings.xml file from https://zeroturnaround.atlassian.net/wiki/display/JD/Maven+Mirror+Configuration
+And place it to ~/.m2/settings.xml
+
+Install Play! Framework 1.2.x from: http://www.playframework.org/
+Unzip it to ~/lib/play directory.
+
+Install compass for SASS development:
+
+    sudo gem install compass
+
+Install MySQL and grant access for your user:
+
+    brew install mysql
+    mysql -uroot
+    > GRANT ALL ON *.* TO 'nene'@'localhost' WITH GRANT OPTION;
+
+
+# Build LiveRebel
+
+Create ~/work directory and clone into it:
+
+    hg clone ssh://hg@bitbucket.org/zeroturnaround/lr-pom
+    hg clone ssh://hg@bitbucket.org/zeroturnaround/lr-test
+
+Check out stable branch:
+
+    hg co stable
+
+Before building:
+
+    cd lr-center
+    play precompile
+    cd ..
+
+Build it:
+
+    mvn clean install -DskipTests=true
+
+Then:
+
+    mvn process-resources
+
+Finally to start it up:
+
+    cd lr-center
+    play run
+
+Navigate to:
+
+    localhost:9002
+
+Wait...
+
+Install karma modules with instructions from lr-center/test-js/README.md
+

@@ -1,6 +1,7 @@
 [ui]
-username = Rene Saarsoo <nene@triin.net>
+username = Rene Saarsoo <rene.saarsoo@zeroturnaround.com>
 ssh = ssh -C
+ignore = ~/.hgrc.d/ignore
 
 [hostfingerprints]
 bitbucket.org = 24:9c:45:8b:9c:aa:ba:55:4e:01:6d:58:ff:e4:28:7d:2a:14:ae:3b
@@ -11,6 +12,11 @@ pager =
 graphlog =
 rebase =
 histedit =
+record =
+churn =
+bookmarks =
+blametrail = ~/bin/blametrail.py
+mq =
 
 [pager]
 pager = LESS='FRX' less -r
@@ -18,5 +24,8 @@ attend = annotate, cat, diff, export, glog, log, qdiff, slog
 
 [alias]
 slog = log --style ~/.hgrc.d/slog.ini
+push = push -r .
 
+[bookmarks]
+track.current = True
 
