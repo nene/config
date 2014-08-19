@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+
+function clean_dir() {
+  rm -rf $1
+  mkdir $1
+}
+
+function clean_database() {
+  echo "drop database $1;" | mysql
+  echo "create database $1;" | mysql
+}
+
+workdir=~/work
+cli="java -jar $workdir/lr-pom/lr-cli/target/lr-cli.jar -username admin -password demo -url http://localhost:9002/"
+
+# Scriba App
+
+# Upload applications
+dir=$workdir/scriba
+for archive in $(echo $dir/archives/scriba-1.2 $dir/archives/scriba-1.2.1 $dir/archives/scriba-2.0.0 ); do
+  $cli upload -file $archive -full
+done
+
+# Clean install directories
+clean_dir $dir/scriba-testing
+clean_dir $dir/scriba-live
+
+# clean databases
+clean_database "scriba_testing"
+clean_database "scriba_live"
+
+
+# DB App
+
+# Upload applications
+dir=$workdir/dbapp
+for archive in $(echo $dir/archives/dbapp-1.0.0 ); do
+  $cli upload -file $archive -full
+done
+
+# Clean install directories
+clean_dir $dir/dbapp-testing
+clean_dir $dir/dbapp-live
+
+# clean databases
+clean_database "dbapp_testing"
+clean_database "dbapp_live"
+
+
+# Create new database server (upload MySQL driver)
+#
+# localhost : 3306 / scriba_testing
+# user: nene
+# pass:
+#
+# (Use one of existing agents)
+#
+# Add more schemas to the database server:
+#
+# - scriba_live
+# - dbapp_tesing
+# - dbapp_live
+
+# Create server group "Scriba" and move "File server" in there.
+
+# lr-cli groups -c create "Scriba"
+# lr-cli groups -c add -name "Scriba" -servers "File server"
+
+# Initialize server group configuration:
+
+# rm -rf ~/work/scriba/scriba-config
+# git clone "http://admin@localhost:9002/git/conf/serverGroups/1.git" ~/work/scriba/scriba-config
+# cp ~/work/scriba/group.properties ~/work/scriba/scriba-config/props/group.properties
+# cd ~/work/scriba/scriba-config
+# git ci -av -m "Add initial properties"
+# git push origin master
+# cd -
