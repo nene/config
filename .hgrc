@@ -17,6 +17,7 @@ churn =
 bookmarks =
 blametrail = ~/bin/blametrail.py
 mq =
+shelve =
 
 [pager]
 pager = LESS='FRX' less -r
