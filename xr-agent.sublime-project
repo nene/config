@@ -1,0 +1,14 @@
+{
+    "folders":
+    [
+        {
+            "follow_symlinks": true,
+            "path": "~/work/xr-agent",
+            "folder_exclude_patterns": [
+                "xr-agent/xr-web-ui/resources/lib",
+                "xr-agent/xr-web-ui/target",
+                "xr-agent/dist"
+            ]
+        }
+    ]
+}
