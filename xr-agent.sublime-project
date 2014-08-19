@@ -6,6 +6,8 @@
             "path": "~/work/xr-agent",
             "folder_exclude_patterns": [
                 "xr-agent/xr-web-ui/resources/lib",
+                "xr-agent/xr-web-ui/resources/tests/node_modules",
+                "xr-agent/xr-web-ui/resources/compass/.sass-cache",
                 "xr-agent/xr-web-ui/target",
                 "xr-agent/dist"
             ]
