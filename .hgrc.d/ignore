@@ -1,2 +1,4 @@
 lr-pom.sublime-project
 lr-pom.sublime-workspace
+node_modules/
+.sass-cache/
