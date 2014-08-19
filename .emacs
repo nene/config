@@ -154,6 +154,11 @@
   '(lambda ()
      (define-key c-mode-map (kbd "M-a") 'anything)))
 
+;; Disable automatic line wrapping in html-mode
+(add-hook 'html-mode-hook
+          '(lambda ()
+             (auto-fill-mode -1)))
+
 ;;
 ;; My own customizations
 ;;
