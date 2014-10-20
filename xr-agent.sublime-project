@@ -9,7 +9,13 @@
                 "xr-agent/xr-web-ui/resources/tests/node_modules",
                 "xr-agent/xr-web-ui/resources/compass/.sass-cache",
                 "xr-agent/xr-web-ui/target",
+                "xr-agent/xr-web-ui/node_modules",
+                "xr-agent/xr-web-ui/node",
+                "xr-agent/xr-web-ui/coverage",
                 "xr-agent/dist"
+            ],
+            "file_exclude_patterns": [
+                "*.min.js"
             ]
         }
     ]
