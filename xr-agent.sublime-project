@@ -12,10 +12,7 @@
                 "xr-agent/xr-web-ui/node_modules",
                 "xr-agent/xr-web-ui/node",
                 "xr-agent/xr-web-ui/coverage",
-                "xr-agent/dist"
-            ],
-            "file_exclude_patterns": [
-                "*.min.js"
+                "xr-agent/xr-web-ui/dist"
             ]
         }
     ]
