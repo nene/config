@@ -25,7 +25,7 @@ pager = LESS='FRX' less -r
 attend = annotate, cat, diff, export, glog, log, qdiff, slog
 
 [alias]
-slog = log --style ~/.hgrc.d/slog.ini
+slog = log --style ~/.hgrc.d/slog.ini -G
 push = push -r .
 
 [bookmarks]
