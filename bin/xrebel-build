@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+cd ~/work/xr-agent
+export MAVEN_OPTS="$ANT_OPTS"
+mvn clean package -Pwn -T1C
+cd -
+
