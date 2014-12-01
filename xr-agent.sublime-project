@@ -12,7 +12,7 @@
                 "xr-agent/xr-web-ui/node_modules",
                 "xr-agent/xr-web-ui/node",
                 "xr-agent/xr-web-ui/coverage",
-                "xr-agent/xr-web-ui/dist"
+                "xr-agent/xr-web-ui/typescript"
             ]
         }
     ]
