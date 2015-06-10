@@ -27,6 +27,7 @@ attend = annotate, cat, diff, export, glog, log, qdiff, slog
 [alias]
 slog = log --style ~/.hgrc.d/slog.ini -G
 push = push -r .
+pr = pull --rebase
 
 [bookmarks]
 track.current = True
