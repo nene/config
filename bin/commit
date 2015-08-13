@@ -3,7 +3,7 @@
 # Helper for easy lookup of issue number while committing.
 
 # Read JIRA_USER="user:pass" variable from here:
-source ./.commit-pass
+source $(dirname $0)/.commit-pass
 
 JSON=$(curl -s -u $JIRA_PASS -X GET -H "Content-Type: application/json" "https://zeroturnaround.atlassian.net/rest/api/2/search?jql=assignee=rene.saarsoo+AND+status='In+Development'&fields=key,summary");
 KEY=$(echo "$JSON" | json issues | json -a key);
