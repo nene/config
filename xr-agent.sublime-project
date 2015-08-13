@@ -1,19 +1,19 @@
 {
-    "folders":
-    [
-        {
-            "follow_symlinks": true,
-            "path": "~/work/xr-agent",
-            "folder_exclude_patterns": [
-                "xr-agent/xr-web-ui/resources/lib",
-                "xr-agent/xr-web-ui/resources/tests/node_modules",
-                "xr-agent/xr-web-ui/resources/compass/.sass-cache",
-                "xr-agent/xr-web-ui/target",
-                "xr-agent/xr-web-ui/node_modules",
-                "xr-agent/xr-web-ui/node",
-                "xr-agent/xr-web-ui/coverage",
-                "xr-agent/xr-web-ui/typescript"
-            ]
-        }
-    ]
+	"folders":
+	[
+		{
+			"folder_exclude_patterns":
+			[
+				"xr-agent/xr-web-ui/resources/lib",
+				"xr-agent/xr-web-ui/resources/tests/node_modules",
+				"xr-agent/xr-web-ui/resources/compass/.sass-cache",
+				"xr-agent/xr-web-ui/target",
+				"xr-agent/xr-web-ui/node_modules",
+				"xr-agent/xr-web-ui/node",
+				"xr-agent/xr-web-ui/coverage",
+				"xr-agent/xr-web-ui/typescript"
+			],
+			"path": "/Users/nene/work/xr-agent"
+		}
+	]
 }
