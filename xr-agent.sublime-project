@@ -4,6 +4,9 @@
 		{
 			"folder_exclude_patterns":
 			[
+				"xr-agent/xr-sharing-ui/target",
+				"xr-agent/xr-sharing-ui/node_modules",
+				"xr-agent/xr-sharing-ui/node",
 				"xr-agent/xr-web-ui/resources/lib",
 				"xr-agent/xr-web-ui/resources/tests/node_modules",
 				"xr-agent/xr-web-ui/resources/compass/.sass-cache",
@@ -11,7 +14,6 @@
 				"xr-agent/xr-web-ui/node_modules",
 				"xr-agent/xr-web-ui/node",
 				"xr-agent/xr-web-ui/coverage",
-				"xr-agent/xr-web-ui/typescript"
 			],
 			"path": "/Users/nene/work/xr-agent"
 		}
