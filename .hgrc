@@ -16,7 +16,6 @@ histedit =
 record =
 churn =
 bookmarks =
-blametrail = ~/bin/blametrail.py
 mq =
 shelve =
 
