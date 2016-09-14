@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 cd ~/work/xr-agent
-export MAVEN_OPTS="$ANT_OPTS"
-mvn clean package -Pwn -T1C -Dskip-frontend
+export MAVEN_OPTS=
+mvn clean install -T1C -DskipTests -Dskip-frontend
 cd -
 
