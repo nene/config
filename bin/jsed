@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 for file in $(find . -iname '*.js'); do
-    sed -r -i"" "$1" $file;
+    sed -E -i "" "$1" $file;
 done
