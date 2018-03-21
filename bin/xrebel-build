@@ -2,6 +2,6 @@
 
 cd ~/work/xr-agent
 export MAVEN_OPTS=
-mvn clean install -T1C -DskipTests -Dskip-frontend
+mvn clean install -T1C -Dscm=git:file:///Users/nene/work/xr-agent -DskipTests #-Dskip-frontend
 cd -
 
