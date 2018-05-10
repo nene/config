@@ -14,5 +14,5 @@ if [ -z $KEY ]; then
 else
     git commit -m "$KEY
 
-$SUMMARY" -e "$@"
+# $SUMMARY" -e "$@"
 fi
