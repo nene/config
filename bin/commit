@@ -5,7 +5,7 @@
 # Read JIRA_USER="user:pass" variable from here:
 source $(dirname $0)/.commit-pass
 
-JSON=$(curl -s -u $JIRA_PASS -X GET -H "Content-Type: application/json" "https://jira.roguewave.com/rest/api/2/search?jql=assignee=rene.saarsoo+AND+status='In+Development'&fields=key,summary");
+JSON=$(curl -s -u $JIRA_USER -X GET -H "Content-Type: application/json" "https://aripaev.atlassian.net/rest/api/2/search?jql=assignee=rene.saarsoo+AND+status='In+Development'&fields=key,summary");
 KEY=$(echo "$JSON" | json issues | json -a key);
 SUMMARY=$(echo "$JSON" | json issues | json -a fields.summary);
 
