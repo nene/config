@@ -53,3 +53,8 @@ Install in Atom:
 - linter
 - linter-eslint
 
+Configure different commit e-mail for company repositories:
+
+    cd work/project/
+    git config user.email "rene.saarsoo@mooncascade.com"
+
