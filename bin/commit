@@ -12,7 +12,7 @@ SUMMARY=$(echo "$JSON" | json issues | json -a fields.summary);
 if [ -z $KEY ]; then
     echo "No issues in development :("
 else
-    git commit -m "$KEY
+    git commit -m " $KEY
 
 # $SUMMARY" -e "$@"
 fi
