@@ -44,6 +44,10 @@ Install with brew:
 - nvm (also installs npm)
 - yarn --without-node
 
+Install with npm:
+
+- npm install -g json # json command line tool
+
 Google for git-completion. Try to install it.
 
 Install in Atom:
