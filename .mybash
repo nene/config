@@ -95,22 +95,4 @@ alias rbgrep="find . -iname '*.rb' | sed \"s/$/'/; s/^/'/;\" | xargs egrep --col
 alias xmlgrep="find . -iname '*.xml' | sed \"s/$/'/; s/^/'/;\" | xargs egrep --color"
 alias phpgrep="find . -iname '*.php' -or -iname '*.inc' | sed \"s/$/'/; s/^/'/;\" | xargs egrep --color"
 
-# make MPlayeri really quiet
-alias mplayer="mplayer -really-quiet"
-
-# telnet/ssh aliases
-alias lin2="ssh nene@lin2.tlu.ee"
-alias sshmedian="ssh rene@mail.tarkvarastuudio.ee"
-
-alias mountmedian="sshfs -o workaround=rename rene@mail.tarkvarastuudio.ee:/storage/www/dev/rene /home/nene/median/"
-alias mountall="mount /mnt/data; mount /mnt/backup"
-
-alias ip="cat /var/lib/dhcpc/dhcpcd-eth0.info | head -n 7"
-alias usb="sudo mount /dev/sda1 /mnt/usb/"
-
-# SeeMe development
-alias fix-js-file-endings='for file in $(find . -iname "*.js"); do dos2unix $file; done'
-alias psql-seeme="psql --host=192.168.0.1 --port=5432 seeme2 local"
-alias problem-files="find . | egrep '\.(php|inc|sql|js|css|rb|sh)$' | xargs wc -l | sort -g"
-
 
