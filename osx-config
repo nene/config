@@ -44,5 +44,12 @@ Install with brew:
 - nvm (also installs npm)
 - yarn --without-node
 
+Google for git-completion. Try to install it.
 
+Install in Atom:
+
+- highlight-selected
+- blame
+- linter
+- linter-eslint
 
