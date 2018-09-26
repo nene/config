@@ -5,9 +5,6 @@
 	status = auto
 	branch = auto
 	interactive = auto
-[user]
-	name = Rene Saarsoo
-	email = nene@triin.net
 [alias]
 	df = diff
 	lg = log --ext-diff
@@ -33,3 +30,9 @@
 	trustExitCode = true
 [push]
 	default = simple
+
+[include]
+	path = .gitconfig.personal
+[includeIf "gitdir:~/repos/"]
+	path = .gitconfig.taxify
+
