@@ -47,7 +47,7 @@ function create_PS1() {
   echo "${RED}$1 ${GREEN}\W ${YELLOW}\$(parse_git_branch)\$(parse_hg_branch)${GREEN}\$ ${DEFAULT}"
 }
 
-PS1=$(create_PS1 "nene@mc")
+PS1=$(create_PS1 "nene@taxify")
 
 
 # Exports
