@@ -36,6 +36,8 @@ Create links from ~/. dir to config/ dir:
 
 - bin/
 - .gitconfig
+- .gitconfig.personal
+- .gitconfig.taxify
 
 Create .bashrc file with `source ~/config/.mybash` and additional settings.
 
@@ -71,10 +73,6 @@ Install in Atom:
 - blame
 - linter
 - linter-eslint
-
-Configure different commit e-mail for company repositories:
-
-- https://stackoverflow.com/questions/40272879/git-config-with-directory-scope-containing-multiple-repositories
 
 Create .vimrc file with contents:
 
