@@ -74,8 +74,7 @@ Install in Atom:
 
 Configure different commit e-mail for company repositories:
 
-    cd work/project/
-    git config user.email "rene.saarsoo@mooncascade.com"
+- https://stackoverflow.com/questions/40272879/git-config-with-directory-scope-containing-multiple-repositories
 
 Create .vimrc file with contents:
 
