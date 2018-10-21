@@ -74,6 +74,9 @@ Install in Atom:
 - linter
 - linter-eslint
 
+To enable OSX Mojave dark mode in Atom: 
+- add the NSRequiresAquaSystemAppearance key to Info.plist (Located in /Applications/Atom/Contents), and set to false.
+
 Create .vimrc file with contents:
 
     syntax enable
