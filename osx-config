@@ -18,6 +18,11 @@ Install:
 - Firefox
 - VirtualBox
 
+When you sometimes later upgrade MacOS, command line tools will disappear :(
+Then run this command to reinstall them:
+
+- xcode-select --install
+
 Install with brew:
 
 - git
