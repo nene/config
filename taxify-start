@@ -1,0 +1,2 @@
+#!/bin/bash
+yarn start 2>&1 | egrep -vi '(error|criti).*(InternalRequestTester|cron|Python)|file does not exist, using LOCAL configuration'
