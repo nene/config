@@ -19,6 +19,8 @@ Install:
 - VirtualBox
 - Slack app
 - iTerm
+- Tunnelblick
+- Docker
 
 When you sometimes later upgrade MacOS, command line tools will disappear :(
 Then run this command to reinstall them:
