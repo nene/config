@@ -6,6 +6,8 @@ Configure:
   - Keyboard -> Input Sources
 - Keyboard shortcuts for navigating spaces:
   - Keyboard -> Shortcuts -> Mission Control -> Move left/right a space -> s/^/⌘/
+- Keybord shortcuts for switching keyboards:
+  - Keyboard -> Shortcuts -> Input Sources -> Select next source in input menu -> Option+Command+K
 - Disable Caps-Lock key:
   - Keyboard -> Modifier Keys...
 - Enable showing percentage on Mac battery icon
