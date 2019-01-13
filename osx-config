@@ -1,12 +1,19 @@
 Configure:
 
-- dock to be smaller and hidden by default
-- Keyboard layout for Estonian
-- Keyboard shortcuts for navigating spaces
-- Terminal to use Pro color scheme
-- Disable Caps-Lock key
+- dock to be smaller and hidden by default:
+  - Dock -> Automatically hide and show the Dock
+- Keyboard layout for Estonian & ABC:
+  - Keyboard -> Input Sources
+- Keyboard shortcuts for navigating spaces:
+  - Keyboard -> Shortcuts -> Mission Control -> Move left/right a space -> s/^/⌘/
+- Disable Caps-Lock key:
+  - Keyboard -> Modifier Keys...
 - Enable showing percentage on Mac battery icon
-- Open your home dir in Finder -> Show view options -> Show library folder
+- Finder:
+  - Open your home dir -> Show view options -> Show library folder
+  - Add home dir to Finder favorites
+  - Remove Airdrop from favorites
+- Terminal to use Pro color scheme
 
 Install:
 
