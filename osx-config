@@ -83,7 +83,8 @@ Install with npm:
 
 - npm install -g json # json command line tool
 
-Google for git-completion. Try to install it.
+Test whether Git completion already works. If so, do nothing.
+Otherwise google for git-completion. Try to install it.
 
 Install in Atom:
 
