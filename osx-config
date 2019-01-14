@@ -99,9 +99,11 @@ Install in Atom:
 - editorconfig
 - language-purescript
 
+Configure Atom:
+- Enable OSX Mojave dark mode: 
+  - add the NSRequiresAquaSystemAppearance key to Info.plist (Located in /Applications/Atom/Contents), and set to false.
+- Settings -> Editor -> Scroll past end 
 
-To enable OSX Mojave dark mode in Atom: 
-- add the NSRequiresAquaSystemAppearance key to Info.plist (Located in /Applications/Atom/Contents), and set to false.
 
 Create .vimrc file with contents:
 
