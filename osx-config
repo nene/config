@@ -95,10 +95,10 @@ Install in Atom:
 - linter
 - linter-eslint
 - linter-tslint
-- atom-typescript
 - editorconfig
 - language-purescript
-- hyperclick (to make ⌘-click work for go-to-declaration for TypeScript)
+- atom-typescript
+- atom-ide-ui (to enhance atom-typescript)
 
 Configure Atom:
 - Enable OSX Mojave dark mode: 
