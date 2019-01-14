@@ -98,6 +98,7 @@ Install in Atom:
 - atom-typescript
 - editorconfig
 - language-purescript
+- hyperclick (to make ⌘-click work for go-to-declaration for TypeScript)
 
 Configure Atom:
 - Enable OSX Mojave dark mode: 
