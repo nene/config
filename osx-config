@@ -109,3 +109,12 @@ Configure Atom:
 Create .vimrc file with contents:
 
     syntax enable
+
+Taxify:
+
+To setup VPN:
+- Tunnelblick configs in a zip file sent by e-mail from Guido.
+- Use password from Slack.
+
+To setup docker:
+- https://taxify.atlassian.net/wiki/spaces/ENGINEERING/pages/900825767/Docker
