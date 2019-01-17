@@ -32,6 +32,7 @@ Install:
 - iTerm
 - Tunnelblick
 - Docker
+- MySQL workbench
 
 When you sometimes later upgrade MacOS, command line tools will disappear :(
 Then run this command to reinstall them:
