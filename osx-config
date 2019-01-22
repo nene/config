@@ -119,3 +119,24 @@ To setup VPN:
 
 To setup docker:
 - https://taxify.atlassian.net/wiki/spaces/ENGINEERING/pages/900825767/Docker
+
+Install Fish shell:
+
+```
+brew install fish
+# Set as default shell
+echo /usr/local/bin/fish >> /etc/shells
+chsh -s to /usr/local/bin/fish
+```
+
+Inside fish:
+
+```
+# Configure how prompt looks
+fish_config
+# Add NodeJS packages to PATH
+set -U fish_user_paths /Users/renesaarsoo/.nvm/versions/node/v8.15.0/bin 
+# Setup oh-my-fish package manager and add NVM
+curl -L https://get.oh-my.fish | fish
+omf install nvm
+```
