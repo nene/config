@@ -73,6 +73,7 @@ Install with brew:
 - bash-completion@2 (Note the message about configuring it in .bashrc)
 - nvm
 - yarn --without-node
+- exitfool (to be used by Lightroom LensTagger plugin)
 
 Install yarn completion. See:
 
