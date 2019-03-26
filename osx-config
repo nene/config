@@ -32,6 +32,7 @@ Install:
 - iTerm
 - Tunnelblick
 - Docker
+- MySQL workbench
 
 When you sometimes later upgrade MacOS, command line tools will disappear :(
 Then run this command to reinstall them:
@@ -72,6 +73,7 @@ Install with brew:
 - bash-completion@2 (Note the message about configuring it in .bashrc)
 - nvm
 - yarn --without-node
+- exitfool (to be used by Lightroom LensTagger plugin)
 
 Install yarn completion. See:
 
@@ -95,14 +97,47 @@ Install in Atom:
 - linter
 - linter-eslint
 - linter-tslint
-- atom-typescript
 - editorconfig
 - language-purescript
+- atom-typescript
+- atom-ide-ui (to enhance atom-typescript)
 
+Configure Atom:
+- Enable OSX Mojave dark mode: 
+  - add the NSRequiresAquaSystemAppearance key to Info.plist (Located in /Applications/Atom/Contents), and set to false.
+- Settings -> Editor -> Scroll past end 
 
-To enable OSX Mojave dark mode in Atom: 
-- add the NSRequiresAquaSystemAppearance key to Info.plist (Located in /Applications/Atom/Contents), and set to false.
 
 Create .vimrc file with contents:
 
     syntax enable
+
+Taxify:
+
+To setup VPN:
+- Tunnelblick configs in a zip file sent by e-mail from Guido.
+- Use password from Slack.
+
+To setup docker:
+- https://taxify.atlassian.net/wiki/spaces/ENGINEERING/pages/900825767/Docker
+
+Install Fish shell:
+
+```
+brew install fish
+# Set as default shell
+echo /usr/local/bin/fish >> /etc/shells
+chsh -s to /usr/local/bin/fish
+```
+
+Inside fish:
+
+```
+# Configure how prompt looks
+fish_config
+# Add NodeJS packages to PATH
+set -U fish_user_paths /Users/renesaarsoo/.nvm/versions/node/v8.15.0/bin 
+# Setup oh-my-fish package manager and add NVM
+curl -L https://get.oh-my.fish | fish
+omf install nvm
+```
