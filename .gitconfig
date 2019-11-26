@@ -14,6 +14,10 @@
 	co = checkout
 	slog = log --format=format:'%C(yellow)%h %Cgreen%an - %Creset%s %Cblue(%ar)%C(blue bold)%d%Creset' --graph
 	stepback = reset --hard HEAD^
+	# List files that have been ignored by git update-index --assume-unchanged <file>
+        # One can get the files back by git update-index --no-assume-unchanged <file>
+        ignored = !git ls-files -v | grep "^[[:lower:]]"
+        publish = !sh -c 'git push origin -u ${1-"$(git rev-parse --abbrev-ref HEAD)"}'
 [diff "podiff"]
 	textconv = strip-po-comments
 [svn]
