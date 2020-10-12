@@ -119,6 +119,12 @@ Configure VSCode:
 
 - Add VSCode to command line: Ctrl+Shift+P --> "Install 'code' command in PATH"
 
+Install VSCode extensions:
+
+- ESLint
+- Editorconfig for VS Code
+- Prettier - Code formatter
+
 Create .vimrc file with contents:
 
     syntax enable
