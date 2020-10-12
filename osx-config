@@ -25,6 +25,7 @@ Install:
 
 - Chrome
 - Atom
+- VSCode
 - Homebrew (Installs XCode command line tools)
 - Spectacle
 - Lightroom & Photoshop
@@ -99,16 +100,24 @@ Install in Atom:
 - linter
 - linter-eslint
 - linter-tslint
+- linter-ui-default
 - editorconfig
 - language-purescript
 - atom-typescript
 - atom-ide-ui (to enhance atom-typescript)
+- git-time-machine
+- sort-lines
+- split-diff
+- prettier-atom
 
 Configure Atom:
 - Enable OSX Mojave dark mode: 
   - add the NSRequiresAquaSystemAppearance key to Info.plist (Located in /Applications/Atom/Contents), and set to false.
 - Settings -> Editor -> Scroll past end 
 
+Configure VSCode:
+
+- Add VSCode to command line: Ctrl+Shift+P --> "Install 'code' command in PATH"
 
 Create .vimrc file with contents:
 
