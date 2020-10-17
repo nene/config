@@ -71,23 +71,10 @@ Create links from ~/. dir to config/ dir:
 - .gitconfig
 - .gitconfig.personal
 
-Create .bashrc file with `source ~/config/.mybash` and additional settings.
-
-Create .bash_profile file with `source ~/.bashrc`
-
-Upgrade bash to v4. Follow these instructions:
-
-- http://clubmate.fi/upgrade-to-bash-4-in-mac-os-x/
-
 Install with brew:
 
-- bash-completion@2 (Note the message about configuring it in .bashrc)
 - nvm
 - exitfool (to be used by Lightroom LensTagger plugin)
-
-Install yarn completion. See:
-
-- https://github.com/dsifford/yarn-completion
 
 Install latest NodeJS version (also installs npm):
 
@@ -97,9 +84,6 @@ Install with npm:
 
 - npm install -g yarn
 - npm install -g json # json command line tool
-
-Test whether Git completion already works. If so, do nothing.
-Otherwise google for git-completion. Try to install it.
 
 Install in Atom:
 
