@@ -152,7 +152,7 @@ Inside fish:
 # Configure how prompt looks
 fish_config
 # Add NodeJS packages to PATH
-set -U fish_user_paths /Users/renesaarsoo/.nvm/versions/node/v8.15.0/bin 
+set -U fish_user_paths /Users/nene/.nvm/versions/node/v12.19.0/bin 
 # Setup oh-my-fish package manager and add NVM
 curl -L https://get.oh-my.fish | fish
 omf install nvm
