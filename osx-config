@@ -74,7 +74,7 @@ Create links from ~/. dir to config/ dir:
 Install with brew:
 
 - nvm
-- exitfool (to be used by Lightroom LensTagger plugin)
+- exiftool (to be used by Lightroom LensTagger plugin)
 
 Install latest NodeJS version (also installs npm):
 
