@@ -141,3 +141,16 @@ set -U fish_user_paths /Users/nene/.nvm/versions/node/v12.19.0/bin
 curl -L https://get.oh-my.fish | fish
 omf install nvm
 ```
+
+# Java (might come handy for various stuff)
+
+- brew install openjdk
+
+# Minecraft setup
+
+- Get minecraft installer from minecraft.net
+- Ensure you have JDK
+- Get Forge loader: https://files.minecraftforge.net/
+- Download "Worldedit" for Forge and place to mods/
+- Download "WorldEditCUI Forge Edition 3" and place to mods/
+- Turn off distance-measurement: edit minecraft/config/wecui3.yml
