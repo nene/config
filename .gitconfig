@@ -38,6 +38,6 @@
 
 [include]
 	path = .gitconfig.personal
-[includeIf "gitdir:~/repos/"]
-	path = .gitconfig.taxify
+# [includeIf "gitdir:~/repos/"]
+# 	path = .gitconfig.taxify
 

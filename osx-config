@@ -31,12 +31,7 @@ Install:
 - Homebrew (Installs XCode command line tools)
 - Spectacle
 - Lightroom & Photoshop
-- VirtualBox
 - Slack app
-- iTerm
-- Tunnelblick
-- Docker
-- MySQL workbench
 
 Firefox settings:
 
@@ -73,7 +68,6 @@ Create links from ~/. dir to config/ dir:
 - bin/
 - .gitconfig
 - .gitconfig.personal
-- .gitconfig.taxify
 
 Create .bashrc file with `source ~/config/.mybash` and additional settings.
 
@@ -140,15 +134,6 @@ Install VSCode extensions:
 Create .vimrc file with contents:
 
     syntax enable
-
-Taxify:
-
-To setup VPN:
-- Tunnelblick configs in a zip file sent by e-mail from Guido.
-- Use password from Slack.
-
-To setup docker:
-- https://taxify.atlassian.net/wiki/spaces/ENGINEERING/pages/900825767/Docker
 
 Install Fish shell:
 
