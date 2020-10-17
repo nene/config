@@ -19,7 +19,9 @@ Configure:
   - Open your home dir -> Show view options -> Show library folder
   - Add home dir to Finder favorites
   - Remove Airdrop from favorites
-- Terminal to use Pro color scheme
+- Terminal:
+  - Use Pro color scheme
+  - Set font size to 14
 
 Install:
 
@@ -90,7 +92,7 @@ Install yarn completion. See:
 
 Install latest NodeJS version (also installs npm):
 
-- nvm install 8
+- nvm install 12
 
 Install with npm:
 
@@ -141,7 +143,7 @@ Install Fish shell:
 brew install fish
 # Set as default shell
 echo /usr/local/bin/fish >> /etc/shells
-chsh -s to /usr/local/bin/fish
+chsh -s /usr/local/bin/fish
 ```
 
 Inside fish:
