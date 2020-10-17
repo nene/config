@@ -23,19 +23,25 @@ Configure:
 
 Install:
 
+- Firefox
+- 1password Mac App
 - Chrome
 - Atom
 - VSCode
 - Homebrew (Installs XCode command line tools)
 - Spectacle
 - Lightroom & Photoshop
-- Firefox
 - VirtualBox
 - Slack app
 - iTerm
 - Tunnelblick
 - Docker
 - MySQL workbench
+
+Firefox extensions:
+
+- 1password addon https://1password.com/browsers/firefox/
+- DuckDuckGo addon
 
 When you sometimes later upgrade MacOS, command line tools will disappear :(
 Then run this command to reinstall them:
