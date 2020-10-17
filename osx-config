@@ -83,7 +83,6 @@ Install with brew:
 
 - bash-completion@2 (Note the message about configuring it in .bashrc)
 - nvm
-- yarn --without-node
 - exitfool (to be used by Lightroom LensTagger plugin)
 
 Install yarn completion. See:
@@ -96,6 +95,7 @@ Install latest NodeJS version (also installs npm):
 
 Install with npm:
 
+- npm install -g yarn
 - npm install -g json # json command line tool
 
 Test whether Git completion already works. If so, do nothing.
