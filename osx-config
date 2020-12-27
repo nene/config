@@ -119,6 +119,7 @@ Install VSCode extensions:
 - PureScript Language Support
 - PureScript IDE
 - vscode-purty
+- Haskelly
 
 Create .vimrc file with contents:
 
@@ -150,6 +151,17 @@ omf install nvm
 ```
 npm install -g purescript
 npm install -g spago  # the package manager
+```
+
+# Haskell
+
+To install Stack, which contains GHC, build tool and dep-manager:
+
+```
+curl -sSL https://get.haskellstack.org/ | sh 
+
+# Add to Fish shell PATH
+set -U fish_user_paths /Users/nene/.local/bin $fish_user_paths
 ```
 
 # Java (might come handy for various stuff)
