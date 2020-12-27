@@ -142,6 +142,13 @@ curl -L https://get.oh-my.fish | fish
 omf install nvm
 ```
 
+# PureScript
+
+```
+npm install -g purescript
+npm install -g spago  # the package manager
+```
+
 # Java (might come handy for various stuff)
 
 - brew install openjdk
