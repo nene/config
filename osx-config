@@ -116,6 +116,9 @@ Install VSCode extensions:
 - ESLint
 - Editorconfig for VS Code
 - Prettier - Code formatter
+- PureScript Language Support
+- PureScript IDE
+- vscode-purty
 
 Create .vimrc file with contents:
 
