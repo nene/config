@@ -76,15 +76,6 @@ Install with brew:
 - nvm
 - exiftool (to be used by Lightroom LensTagger plugin)
 
-Install latest NodeJS version (also installs npm):
-
-- nvm install 12
-
-Install with npm:
-
-- npm install -g yarn
-- npm install -g json # json command line tool
-
 Install in Atom:
 
 - highlight-selected
@@ -145,6 +136,15 @@ set -U fish_user_paths /Users/nene/.nvm/versions/node/v12.19.0/bin
 curl -L https://get.oh-my.fish | fish
 omf install nvm
 ```
+
+Install latest NodeJS version (also installs npm):
+
+- nvm install 14
+
+Install with npm:
+
+- npm install -g yarn
+- npm install -g json # json command line tool
 
 # PureScript
 
