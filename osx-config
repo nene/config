@@ -31,7 +31,7 @@ Install:
 - Atom
 - VSCode
 - Homebrew (Installs XCode command line tools)
-- Spectacle
+- Spectacle? (use Rectangle instead: https://github.com/rxhanson/Rectangle )
 - Lightroom & Photoshop
 - Slack app
 
