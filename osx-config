@@ -100,7 +100,7 @@ Configure Atom:
 
 Configure VSCode:
 
-- Add VSCode to command line: Ctrl+Shift+P --> "Install 'code' command in PATH"
+- Add VSCode to command line: Cmd+Shift+P --> "Install 'code' command in PATH"
 
 Install VSCode extensions:
 
