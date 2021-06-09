@@ -18,7 +18,7 @@
         # One can get the files back by git update-index --no-assume-unchanged <file>
         ignored = !git ls-files -v | grep "^[[:lower:]]"
         publish = !sh -c 'git push origin -u ${1-"$(git rev-parse --abbrev-ref HEAD)"}'
-        delete-merged = !git branch --merged | egrep -v '^\\*|^  dev$|^  master$' | xargs git branch -d
+        delete-merged = !git branch --merged | egrep -v '^\\*|^  develop$|^  master$' | xargs git branch -d
 [diff "podiff"]
 	textconv = strip-po-comments
 [svn]
