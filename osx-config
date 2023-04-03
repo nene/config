@@ -39,12 +39,22 @@ Firefox settings:
 
 - General: (ON) Restore previous session
 - Privacy and Security: (OFF) Ask to save logins and passwords for websites
+- Remove from toolbar:
+    - Firefox Account
+    - Save to Pocket
 
 Firefox extensions:
 
 - 1password addon https://1password.com/browsers/firefox/
 - DuckDuckGo Privacy essentials
 - uBlock Origin
+- Refined Github
+- Tampermonkey
+- Enhancer for YouTube
+- Unhook
+- Wandrer Map Overlay
+- Sauce for Strava
+- Seasoned TrainerRoad
 
 When you sometimes later upgrade MacOS, command line tools will disappear :(
 Then run this command to reinstall them:
