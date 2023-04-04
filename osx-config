@@ -12,7 +12,6 @@ Configure:
   - Keyboard -> Shortcuts -> Modifier Keys...
 - Disable shortcut for disabling auto-hiding of dock
   - Keyboard > Shortcuts -> Launchpad and Dock -> Turn dock hiding on/off
-- Enable showing percentage on Mac battery icon
 - Finder:
   - Open your home dir -> Show view options -> Show library folder
   - Add home dir to Finder favorites
