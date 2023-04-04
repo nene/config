@@ -8,8 +8,6 @@ Configure:
   - Keyboard -> Shortcuts -> Mission Control -> Move left/right a space -> s/^/⌘/
 - Keybord shortcuts for switching keyboards:
   - Keyboard -> Shortcuts -> Input Sources -> Select next source in input menu -> Option+Command+K
-- Modify touch bar:
-  - Keyboard -> Touch Bar shows: Expanded Control Strip
 - Disable Caps-Lock key:
   - Keyboard -> Modifier Keys...
 - Disable shortcut for disabling auto-hiding of dock
