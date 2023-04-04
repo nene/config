@@ -9,7 +9,7 @@ Configure:
 - Keybord shortcuts for switching keyboards:
   - Keyboard -> Shortcuts -> Input Sources -> Select next source in input menu -> Option+Command+K
 - Disable Caps-Lock key:
-  - Keyboard -> Modifier Keys...
+  - Keyboard -> Shortcuts -> Modifier Keys...
 - Disable shortcut for disabling auto-hiding of dock
   - Keyboard > Shortcuts -> Launchpad and Dock -> Turn dock hiding on/off
 - Enable showing percentage on Mac battery icon
