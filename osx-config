@@ -76,7 +76,7 @@ Create links from ~/. dir to config/ dir:
 - bin/
 - .gitconfig
 - .gitconfig.personal
-- .gitconfig.fleetcomplete
+- .gitconfig.pactum
 
 Install with brew:
 

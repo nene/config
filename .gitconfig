@@ -38,6 +38,6 @@
 
 [include]
 	path = .gitconfig.personal
-[includeIf "gitdir:~/fc/"]
-	path = .gitconfig.fleetcomplete
+[includeIf "gitdir:~/pactum/"]
+	path = .gitconfig.pactum
 
