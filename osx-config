@@ -105,8 +105,8 @@ Install Fish shell:
 ```
 brew install fish
 # Set as default shell
-echo /usr/local/bin/fish >> /etc/shells
-chsh -s /usr/local/bin/fish
+echo /opt/homebrew/bin/fish >> /etc/shells
+chsh -s /opt/homebrew/bin/fish
 ```
 
 Inside fish:
