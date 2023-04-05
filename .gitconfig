@@ -21,8 +21,6 @@
         delete-merged = !git branch --merged | egrep -v '^\\*|^  develop$|^  master$' | xargs git branch -d
 [diff "podiff"]
 	textconv = strip-po-comments
-[svn]
-    rmdir = true
 [core]
 	excludesfile = /Users/nene/.gitignore_global
 [difftool "sourcetree"]
