@@ -59,7 +59,8 @@ Then run this command to reinstall them:
 
 Install with brew:
 
-- git
+- brew install git
+- brew install --cask docker
 
 Generate Public/Private key pair for SSH:
 
