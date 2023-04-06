@@ -156,10 +156,6 @@ curl -sSL https://get.haskellstack.org/ | sh
 set -U fish_user_paths /Users/nene/.local/bin $fish_user_paths
 ```
 
-# Java (might come handy for various stuff)
-
-- brew install openjdk
-
 # Minecraft setup
 
 - Get minecraft installer from minecraft.net
