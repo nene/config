@@ -36,8 +36,8 @@ Firefox settings:
 - General: (ON) Restore previous session
 - Privacy and Security: (OFF) Ask to save logins and passwords for websites
 - Remove from toolbar:
-    - Firefox Account
-    - Save to Pocket
+  - Firefox Account
+  - Save to Pocket
 
 Firefox extensions:
 
@@ -117,7 +117,7 @@ Inside fish:
 fish_config
 set -U __fish_git_prompt_showuntrackedfiles true
 # Add NodeJS packages to PATH
-set -U fish_user_paths /Users/nene/.nvm/versions/node/v12.19.0/bin 
+set -U fish_user_paths /Users/nene/.nvm/versions/node/v12.19.0/bin
 # Setup oh-my-fish package manager and add NVM
 curl -L https://get.oh-my.fish | fish
 ```
@@ -151,7 +151,7 @@ npm install -g spago  # the package manager
 To install Stack, which contains GHC, build tool and dep-manager:
 
 ```
-curl -sSL https://get.haskellstack.org/ | sh 
+curl -sSL https://get.haskellstack.org/ | sh
 
 # Add to Fish shell PATH
 set -U fish_user_paths /Users/nene/.local/bin $fish_user_paths
