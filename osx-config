@@ -115,6 +115,7 @@ Inside fish:
 ```
 # Configure how prompt looks
 fish_config
+set -U __fish_git_prompt_showuntrackedfiles true
 # Add NodeJS packages to PATH
 set -U fish_user_paths /Users/nene/.nvm/versions/node/v12.19.0/bin 
 # Setup oh-my-fish package manager and add NVM
