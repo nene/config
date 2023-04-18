@@ -19,6 +19,7 @@ Configure:
 - Terminal:
   - Use Pro color scheme
   - Set font size to 14
+  - Set font to: Menlo (Same as in VSCode)
 
 Install:
 
