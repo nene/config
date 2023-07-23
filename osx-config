@@ -159,6 +159,12 @@ curl -sSL https://get.haskellstack.org/ | sh
 set -U fish_user_paths /Users/nene/.local/bin $fish_user_paths
 ```
 
+# Prevent Husky scripts from being installed
+
+```
+set -Ux HUSKY 0
+```
+
 # Minecraft setup
 
 - Get minecraft installer from minecraft.net
