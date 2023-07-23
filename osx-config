@@ -61,6 +61,7 @@ Then run this command to reinstall them:
 Install with brew:
 
 - brew install git
+- brew install gh  # Github command line
 - brew install --cask docker
 
 Generate Public/Private key pair for SSH:
