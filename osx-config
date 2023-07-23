@@ -97,6 +97,7 @@ Install VSCode extensions:
 - PureScript IDE
 - vscode-purty
 - Haskelly
+- File Utils (for duplicating and other actions)
 
 Create .vimrc file with contents:
 
