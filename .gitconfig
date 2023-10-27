@@ -41,3 +41,5 @@
 [includeIf "gitdir:~/fc/"]
 	path = .gitconfig.fleetcomplete
 
+[pull]
+	ff = only
