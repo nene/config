@@ -8,13 +8,10 @@ Configure:
   - Keyboard -> Shortcuts -> Mission Control -> Move left/right a space -> s/^/⌘/
 - Keybord shortcuts for switching keyboards:
   - Keyboard -> Shortcuts -> Input Sources -> Select next source in input menu -> Option+Command+K
-- Modify touch bar:
-  - Keyboard -> Touch Bar shows: Expanded Control Strip
 - Disable Caps-Lock key:
-  - Keyboard -> Modifier Keys...
+  - Keyboard -> Shortcuts -> Modifier Keys...
 - Disable shortcut for disabling auto-hiding of dock
   - Keyboard > Shortcuts -> Launchpad and Dock -> Turn dock hiding on/off
-- Enable showing percentage on Mac battery icon
 - Finder:
   - Open your home dir -> Show view options -> Show library folder
   - Add home dir to Finder favorites
@@ -22,13 +19,13 @@ Configure:
 - Terminal:
   - Use Pro color scheme
   - Set font size to 14
+  - Set font to: Menlo (Same as in VSCode)
 
 Install:
 
 - Firefox
 - 1password Mac App
 - Chrome
-- Atom
 - VSCode
 - Homebrew (Installs XCode command line tools)
 - Spectacle? (use Rectangle instead: https://github.com/rxhanson/Rectangle )
@@ -39,12 +36,22 @@ Firefox settings:
 
 - General: (ON) Restore previous session
 - Privacy and Security: (OFF) Ask to save logins and passwords for websites
+- Remove from toolbar:
+  - Firefox Account
+  - Save to Pocket
 
 Firefox extensions:
 
 - 1password addon https://1password.com/browsers/firefox/
 - DuckDuckGo Privacy essentials
 - uBlock Origin
+- Refined Github
+- Tampermonkey
+- Enhancer for YouTube
+- Unhook
+- Wandrer Map Overlay
+- Sauce for Strava
+- Seasoned TrainerRoad
 
 When you sometimes later upgrade MacOS, command line tools will disappear :(
 Then run this command to reinstall them:
@@ -53,7 +60,9 @@ Then run this command to reinstall them:
 
 Install with brew:
 
-- git
+- brew install git
+- brew install gh # Github command line
+- brew install --cask docker
 
 Generate Public/Private key pair for SSH:
 
@@ -70,34 +79,11 @@ Create links from ~/. dir to config/ dir:
 - bin/
 - .gitconfig
 - .gitconfig.personal
-- .gitconfig.fleetcomplete
+- .gitconfig.pactum
 
 Install with brew:
 
 - exiftool (to be used by Lightroom LensTagger plugin)
-
-Install in Atom:
-
-- highlight-selected
-- blame
-- linter
-- linter-eslint
-- linter-tslint
-- linter-ui-default
-- editorconfig
-- language-purescript
-- atom-typescript
-- atom-ide-ui (to enhance atom-typescript)
-- git-time-machine
-- sort-lines
-- split-diff
-- prettier-atom
-
-Configure Atom:
-
-- Enable OSX Mojave dark mode:
-  - add the NSRequiresAquaSystemAppearance key to Info.plist (Located in /Applications/Atom/Contents), and set to false.
-- Settings -> Editor -> Scroll past end
 
 Configure VSCode:
 
@@ -112,6 +98,7 @@ Install VSCode extensions:
 - PureScript IDE
 - vscode-purty
 - Haskelly
+- File Utils (for duplicating and other actions)
 
 Create .vimrc file with contents:
 
@@ -122,8 +109,8 @@ Install Fish shell:
 ```
 brew install fish
 # Set as default shell
-echo /usr/local/bin/fish >> /etc/shells
-chsh -s /usr/local/bin/fish
+echo /opt/homebrew/bin/fish >> /etc/shells
+chsh -s /opt/homebrew/bin/fish
 ```
 
 Inside fish:
@@ -174,9 +161,11 @@ curl -sSL https://get.haskellstack.org/ | sh
 set -U fish_user_paths /Users/nene/.local/bin $fish_user_paths
 ```
 
-# Java (might come handy for various stuff)
+# Prevent Husky scripts from being installed
 
-- brew install openjdk
+```
+set -Ux HUSKY 0
+```
 
 # Minecraft setup
 

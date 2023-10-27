@@ -21,8 +21,6 @@
         delete-merged = !git branch --merged | egrep -v '^\\*|^  develop$|^  master$' | xargs git branch -d
 [diff "podiff"]
 	textconv = strip-po-comments
-[svn]
-    rmdir = true
 [core]
 	excludesfile = /Users/nene/.gitignore_global
 [difftool "sourcetree"]
@@ -38,8 +36,8 @@
 
 [include]
 	path = .gitconfig.personal
-[includeIf "gitdir:~/fc/"]
-	path = .gitconfig.fleetcomplete
+[includeIf "gitdir:~/pactum/"]
+	path = .gitconfig.pactum
 
 [pull]
 	ff = only
