@@ -1,0 +1,9 @@
+#!/usr/bin/env fish
+
+set -l url $argv[1]
+set -l from $argv[2]
+set -l to $argv[3]
+
+for i in (seq -w $from $to)
+    echo $url | sed "s/#/$i/"
+end
