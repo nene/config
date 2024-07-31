@@ -128,7 +128,7 @@ fish_config
 # Also show info about untracked files
 set -U __fish_git_prompt_showuntrackedfiles true
 # Add NodeJS packages to PATH
-set -U fish_user_paths /Users/nene/.nvm/versions/node/v12.19.0/bin
+set -U fish_user_paths /Users/nene/.nvm/versions/node/v20.16.0/bin
 # Setup oh-my-fish package manager and add NVM
 curl -L https://get.oh-my.fish | fish
 ```
