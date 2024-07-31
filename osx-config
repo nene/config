@@ -121,6 +121,8 @@ Inside fish:
 ```
 # Make fish recognize homebrew commands
 fish_add_path "/opt/homebrew/bin/"
+# Scan man pages for completions
+fish_update_completions
 # Configure how prompt looks
 fish_config
 # Also show info about untracked files
