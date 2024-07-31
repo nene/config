@@ -143,7 +143,7 @@ omf install nvm
 
 Install latest NodeJS version (also installs npm):
 
-- nvm install 16
+- nvm install 20
 
 Install with npm:
 
