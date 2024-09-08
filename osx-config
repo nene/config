@@ -63,6 +63,7 @@ Install with brew:
 - brew install git
 - brew install gh # Github command line
 - brew install --cask docker
+- brew install wget
 
 Generate Public/Private key pair for SSH:
 
