@@ -4,6 +4,8 @@ Configure:
   - Dock -> Automatically hide and show the Dock
 - Keyboard layout for Estonian & ABC:
   - Keyboard -> Input Sources
+- Disable double-space to dot:
+  - Keyboard -> Input Sources -> Add period with double-space
 - Keyboard shortcuts for navigating spaces:
   - Keyboard -> Shortcuts -> Mission Control -> Move left/right a space -> s/^/⌘/
 - Keybord shortcuts for switching keyboards:
